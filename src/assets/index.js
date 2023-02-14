@@ -85,8 +85,9 @@ import teneile_tattoo4 from './teneile_tattoo4.jpg';
 import teneile_tattoo5 from './teneile_tattoo5.jpg';
 import teneile_tattoo6 from './teneile_tattoo6.jpg';
 import teneile_tattoo7 from './teneile_tattoo7.jpg';
-
-
+import garage_logo from './garage_logo.jpg';
+import hero_img from './hero_img.jpg';
+import discount from './discount.png';
 
 export const profilePics = [
     Amity_Profilepic,
@@ -214,4 +215,13 @@ export const teneileTattoos = [
     teneile_tattoo5,
     teneile_tattoo6,
     teneile_tattoo7,
+]
+
+export const logos = [
+    garage_logo
+]
+
+export const hero = [
+    hero_img,
+    discount
 ]
