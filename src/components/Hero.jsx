@@ -24,22 +24,25 @@ const Hero = () => (
             <div className='flex flex-row justify-between items-center w-full'>
                 <h1 className='flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px]'>THE 
                 <br className='sm:block hidden'/>{" "}
-                <span className='text-gradient'>GARAGE INK </span>{" "}STUDIO
+                <span className='text-gradient'>GARAGE INK </span>{" "}
                 </h1>
                 <div className='ss:flex hidden md:mr-4 mr-0'>
                     <CreateAcc />
                 </div>
             </div>
 
-            <h1 className={`${styles.paragraph} max-w-[470px] mt-5`}>
+            <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full">
+                STUDIO
             <p className={`${styles.paragraph} max-w-[470px] mt-5`}>Our Studio has been leading the way across all aspects of tattooing for over 15 years. From consultation to design and finally aftercare, the artists at Garage Ink are here to guide you throughout the entire process.</p>
             </h1>
         </div>
 
-
-        {/* applying gradient behind the hero image */}
         <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
             <img src={hero[0]} alt='hero image' className='w-[100%] h-[100%] relative z-[5] rounded-full'/>
+
+
+
+            {/* applying gradient behind the hero image */}
             <div className='absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient' />
             <div className='absolute z-[1] w-[80%] h-[80%] bottom-50 white__gradient rounded-full' />
             <div className='absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient' />

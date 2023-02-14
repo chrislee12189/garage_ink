@@ -89,6 +89,7 @@ import garage_logo from './garage_logo.jpg';
 import hero_img from './hero_img.jpg';
 import discount from './discount.png';
 
+
 export const profilePics = [
     Amity_Profilepic,
     Briar_Profilepic,

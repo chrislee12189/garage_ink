@@ -14,7 +14,7 @@ return (
                 </li>
             ))}
         </ul>
-    </nav>
+</nav>
 )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import { Navbar, Hero, CreateAcc } from './components';
+import { Artists, Blog, Consultations, Community, Footer, Gallery, Navbar, Hero, Store } from './components';
 
 
 //test to see if imported images works === <img src={teneileTattoos[6]}/>
@@ -23,6 +23,18 @@ const App = () => (
       </div>
     </div>
 
+
+    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+        <Artists />
+        <Gallery />
+        <Consultations />
+        <Community />
+        <Store />
+        <Blog />
+        <Footer/>
+      </div>
+    </div>
 
   </div>
 
