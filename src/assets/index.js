@@ -88,6 +88,8 @@ import teneile_tattoo7 from './teneile_tattoo7.jpg';
 import garage_logo from './garage_logo.jpg';
 import hero_img from './hero_img.jpg';
 import discount from './discount.png';
+import instagram_icon from './instagram_icon.png';
+import facebook_icon from './facebook_icon.png';
 
 
 export const profilePics = [
@@ -225,4 +227,9 @@ export const logos = [
 export const hero = [
     hero_img,
     discount
+]
+
+export const socialIcons = [
+    instagram_icon,
+    facebook_icon,
 ]

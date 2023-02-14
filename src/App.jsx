@@ -2,9 +2,6 @@ import React from 'react';
 import styles from './styles';
 import { Artists, Blog, Consultations, Community, Footer, Gallery, Navbar, Hero, Store } from './components';
 
-
-//test to see if imported images works === <img src={teneileTattoos[6]}/>
-import { teneileTattoos }  from './assets';
 //<> </> fragmenting
 
 const App = () => (
