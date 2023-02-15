@@ -103,12 +103,12 @@ export const footerLink = [
 
 export const socialMedia = [
     {
-        id: "social-media-1",
+        id: "Instagram",
         icon: socialIcons[0],
         link: "https://www.instagram.com/garageink4224/?hl=en"
     },
     {
-        id:"social-media-2",
+        id:"Facebook",
         icon: socialIcons[1],
         link: "https://www.facebook.com/garageink4224/"
     }
