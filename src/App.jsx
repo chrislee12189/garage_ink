@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import { Artists, Blog, Consultations, Community, Footer, Gallery, Navbar, Hero, Store } from './components';
+import { Artists, Blog, Consultations, Community, Footer, Gallery, Navbar, Hero, Store, Location } from './components';
 
 //<> </> fragmenting
 
@@ -27,6 +27,13 @@ const App = () => (
           <Gallery />
         </div>
 
+    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+        <div>
+          <Location />
+        </div>
+      </div>
+    </div>
 
 
 

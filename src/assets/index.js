@@ -90,7 +90,8 @@ import hero_img from './hero_img.jpg';
 import discount from './discount.png';
 import instagram_icon from './instagram_icon.png';
 import facebook_icon from './facebook_icon.png';
-
+import menu_icon from './menu_icon.png';
+import close_icon from './close_icon.png';
 
 export const profilePics = [
     Amity_Profilepic,
@@ -221,7 +222,9 @@ export const teneileTattoos = [
 ]
 
 export const logos = [
-    garage_logo
+    garage_logo,
+    menu_icon,
+    close_icon
 ]
 
 export const hero = [

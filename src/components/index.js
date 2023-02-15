@@ -9,6 +9,7 @@ import Gallery from './Gallery';
 import Store from './Store';
 import Community from './Community';
 import ImgSlider from './ImgSlider';
+import Location from './Location';
 
 
 
@@ -23,5 +24,6 @@ export {
     Navbar,
     Hero,
     Store,
-    ImgSlider
+    ImgSlider,
+    Location
 }
