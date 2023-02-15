@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../styles';
 import { navLinks } from '../constants';
 import { logos } from '../assets';
 
