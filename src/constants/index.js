@@ -4,7 +4,7 @@ import { socialIcons } from "../assets";
 
 export const navLinks = [
     {
-        id: "home",
+        id: "/",
         title: "Home"
     },
     {
@@ -13,7 +13,7 @@ export const navLinks = [
     },
     {
         id: "gallery",
-        title: "Gallery"
+        title: "Gallery",
     },
     {
         id: "consultations",
@@ -28,8 +28,8 @@ export const navLinks = [
         title: "Store"
     },
     {
-        id: "blog",
-        title: "Blog"
+        id: "login",
+        title: "Login"
     }
 
 ];
@@ -66,23 +66,23 @@ export const footerLink = [
         links: [
             {
                 name: "Community",
-                link: "https://garageinkv2.com/community"
+                link: "/community"
             },
             {
                 name: "Connect",
-                link: "https://garageinkv2.com/connect"
+                link: "/connect"
             },
             {
                 name: "Share",
-                link: "https://garageinkv2.com/share"
+                link: "/share"
             },
             {
                 name: "Ideas",
-                link: "https://garageinkv2.com/ideas"
+                link: "/ideas"
             },
             {
                 name: "Reviews",
-                link: "https://garageinkv2.com/review"
+                link: "/review"
             }
         ]
     },
@@ -91,11 +91,11 @@ export const footerLink = [
         links: [
             {
                 name: "Consultations",
-                link: "https://garageinkv2.com/booking/consultations"
+                link: "/booking/consultations"
             },
             {
                 name: "Prices",
-                link: "https://garageinkv2.com/booking/pricing"
+                link: "/booking/pricing"
             }
         ]
     }

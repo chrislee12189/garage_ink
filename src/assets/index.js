@@ -64,11 +64,11 @@ import michelle_tattoo5 from './michelle_tattoo5.jpg';
 import michelle_tattoo6 from './michelle_tattoo6.jpg';
 import michelle_tattoo7 from './michelle_tattoo7.jpg';
 import Paytan_Profilepic from './Paytan_Profilepic.jpg';
-import paytan_tatoo1 from './paytan_tattoo1.jpg';
-import paytan_tatoo2 from './paytan_tattoo2.jpg';
-import paytan_tatoo3 from './paytan_tattoo3.jpg';
-import paytan_tatoo4 from './paytan_tattoo4.jpg';
-import paytan_tatoo5 from './paytan_tattoo5.jpg';
+import paytan_tattoo1 from './paytan_tattoo1.jpg';
+import paytan_tattoo2 from './paytan_tattoo2.jpg';
+import paytan_tattoo3 from './paytan_tattoo3.jpg';
+import paytan_tattoo4 from './paytan_tattoo4.jpg';
+import paytan_tattoo5 from './paytan_tattoo5.jpg';
 import Tayler_Profilepic from './Tayler_Profilepic.jpg';
 import tay_tattoo1 from './tay_tattoo1.jpg';
 import tay_tattoo2 from './tay_tattoo2.jpg';
@@ -194,11 +194,11 @@ export const michelleTattoos = [
 ]
 
 export const paytanTattoos = [
-    paytan_tatoo1,
-    paytan_tatoo2,
-    paytan_tatoo3,
-    paytan_tatoo4,
-    paytan_tatoo5
+    paytan_tattoo1,
+    paytan_tattoo2,
+    paytan_tattoo3,
+    paytan_tattoo4,
+    paytan_tattoo5
 ]
 
 export const taylerTattoos = [
@@ -236,6 +236,89 @@ export const socialIcons = [
     instagram_icon,
     facebook_icon,
 ]
+
+
+export const imgGallery = [
+    amity_tattoo1,
+    briar_tattoo1,
+    briar_tattoo2,
+    briar_tattoo3,
+    briar_tattoo4,
+    briar_tattoo6,
+    briar_tattoo7,
+    briar_tattoo8,
+    briar_tattoo9,
+    cim_tattoo1,
+    cim_tattoo2,
+    cim_tattoo3, 
+    crit_tattoo1,
+    crit_tattoo2,
+    crit_tattoo3,
+    crit_tattoo4,
+    crit_tattoo5,
+    crit_tattoo6,
+    crit_tattoo7,
+    crit_tattoo8,
+    em_tattoo1, 
+    em_tattoo2, 
+    em_tattoo3, 
+    em_tattoo4, 
+    em_tattoo5, 
+    em_tattoo6,
+    em_tattoo7, 
+    em_tattoo8, 
+    em_tattoo9, 
+    em_tattoo10,
+    giorgia_tattoo1,
+    giorgia_tattoo2,
+    giorgia_tattoo3,
+    giorgia_tattoo4,
+    giorgia_tattoo5,
+    giorgia_tattoo6,
+    juannita_tattoo1,
+    juannita_tattoo2,
+    juannita_tattoo3,
+    karlee_tattoo1,
+    karlee_tattoo2,
+    karlee_tattoo3,
+    karlee_tattoo4,
+    karlee_tattoo5,
+    karlee_tattoo6,
+    karlee_tattoo7,
+    kim_tattoo1,
+    kim_tattoo2,
+    kim_tattoo3,
+    kim_tattoo4,
+    michelle_tattoo1,
+    michelle_tattoo2,
+    michelle_tattoo3,
+    michelle_tattoo4,
+    michelle_tattoo5,
+    michelle_tattoo6,
+    michelle_tattoo7,
+    paytan_tattoo1,
+    paytan_tattoo2,
+    paytan_tattoo3,
+    paytan_tattoo4,
+    paytan_tattoo5,
+    tay_tattoo1,
+    tay_tattoo2,
+    tay_tattoo3,
+    tay_tattoo4,
+    tay_tattoo5,
+    tay_tattoo6,
+    tay_tattoo7,
+    teneile_tattoo1,
+    teneile_tattoo2,
+    teneile_tattoo3,
+    teneile_tattoo4,
+    teneile_tattoo5,
+    teneile_tattoo6,
+    teneile_tattoo7
+]
+
+
+
 
 
 export const imgSlides =[
@@ -470,23 +553,23 @@ export const imgSlides =[
     },
     {
         id:58,
-        url:paytan_tatoo1
+        url:paytan_tattoo1
     },
     {
         id:59,
-        url:paytan_tatoo2
+        url:paytan_tattoo2
     },
     {
         id:60,
-        url:paytan_tatoo3
+        url:paytan_tattoo3
     },
     {
         id:61,
-        url:paytan_tatoo4
+        url:paytan_tattoo4
     },
     {
         id:62,
-        url:paytan_tatoo5
+        url:paytan_tattoo5
     },
     {
         id:63,
