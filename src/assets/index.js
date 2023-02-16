@@ -92,6 +92,7 @@ import instagram_icon from './instagram_icon.png';
 import facebook_icon from './facebook_icon.png';
 import menu_icon from './menu_icon.png';
 import close_icon from './close_icon.png';
+import gold_garage_logo from './garage_gold_logo.jpg';
 
 export const profilePics = [
     Amity_Profilepic,
@@ -224,7 +225,8 @@ export const teneileTattoos = [
 export const logos = [
     garage_logo,
     menu_icon,
-    close_icon
+    close_icon,
+    gold_garage_logo
 ]
 
 export const hero = [
@@ -325,307 +327,383 @@ export const imgSlides =[
     {
         id:1,
         url: amity_tattoo1,
+        name: "Amity Napoli"
         
     },
     {
         id:2,
         url: briar_tattoo1,
+        name: "Briar Celeste"
     },
     {
         id: 3,
-        url: briar_tattoo2
+        url: briar_tattoo2,
+        name: "Briar Celeste"
     },
     {
         id: 3,
-        url: briar_tattoo3
+        url: briar_tattoo3,
+        name: "Briar Celeste"
     },
     {
         id: 4,
-        url: briar_tattoo4
+        url: briar_tattoo4,
+        name: "Briar Celeste"
     },
     {
         id: 6,
-        url: briar_tattoo6
+        url: briar_tattoo6,
+        name: "Briar Celeste"
     },
     {
         id:7,
-        url: briar_tattoo7
+        url: briar_tattoo7,
+        name: "Briar Celeste"
     },
     {
         id: 8,
-        url: briar_tattoo8
+        url: briar_tattoo8,
+        name: "Briar Celeste"
     },
     {
         id: 9,
-        url: briar_tattoo9
+        url: briar_tattoo9,
+        name: "Briar Celeste"
     },
     {
         id:10,
-        url:cim_tattoo1
+        url:cim_tattoo1,
+        name: "Cinnamona"
     },
     {
         id:11,
-        url:cim_tattoo2
+        url:cim_tattoo2,
+        name: "Cinnamona"
     },
     {
         id:12,
-        url:cim_tattoo3
+        url:cim_tattoo3,
+        name: "Cinnamona"
     },
     {
         id:13,
-        url:crit_tattoo1
+        url:crit_tattoo1,
+        name: "Crystal Rose"
     },
     {
         id:14,
-        url:crit_tattoo2
+        url:crit_tattoo2,
+        name: "Crystal Rose"
     },
     {
         id:15,
-        url:crit_tattoo3
+        url:crit_tattoo3,
+        name: "Crystal Rose"
     },
     {
         id:16,
-        url:crit_tattoo4
+        url:crit_tattoo4,
+        name: "Crystal Rose"
     },
     {
         id:17,
-        url:crit_tattoo5
+        url:crit_tattoo5,
+        name: "Crystal Rose"
     },
     {
         id:18,
-        url:crit_tattoo6
+        url:crit_tattoo6,
+        name: "Crystal Rose"
     },
     {
         id:19,
-        url:crit_tattoo7
+        url:crit_tattoo7,
+        name: "Crystal Rose"
     },
     {
         id:20,
-        url:crit_tattoo8
+        url:crit_tattoo8,
+        name: "Crystal Rose"
     },
     {
         id:21,
-        url:em_tattoo1
+        url:em_tattoo1,
+        name: "Emily Taylor"
     },
     {
         id:22,
-        url:em_tattoo2
+        url:em_tattoo2,
+        name: "Emily Taylor"
     },
     {
         id:23,
-        url:em_tattoo3
+        url:em_tattoo3,
+        name: "Emily Taylor"
     },
     {
         id:24,
-        url:em_tattoo4
+        url:em_tattoo4,
+        name: "Emily Taylor"
     },
     {
         id:25,
-        url:em_tattoo5
+        url:em_tattoo5,
+        name: "Emily Taylor"
     },
     {
         id:26,
-        url:em_tattoo6
+        url:em_tattoo6,
+        name: "Emily Taylor"
     },
     {
         id:27,
-        url:em_tattoo7
+        url:em_tattoo7,
+        name: "Emily Taylor"
     },
     {
         id:28,
-        url:em_tattoo8
+        url:em_tattoo8,
+        name: "Emily Taylor"
     },
     {
         id:29,
-        url:em_tattoo9
+        url:em_tattoo9,
+        name: "Emily Taylor"
     },
     {
         id:30,
-        url:em_tattoo10
+        url:em_tattoo10,
+        name: "Emily Taylor"
     },
     {
         id:31,
-        url:giorgia_tattoo1
+        url:giorgia_tattoo1,
+        name: "Giorgia Mae"
     },
     {
         id:32,
-        url:giorgia_tattoo2
+        url:giorgia_tattoo2,
+        name: "Giorgia Mae"
     },
     {
         id:33,
-        url:giorgia_tattoo3
+        url:giorgia_tattoo3,
+        name: "Giorgia Mae"
     },
     {
         id:34,
-        url:giorgia_tattoo4
+        url:giorgia_tattoo4,
+        name: "Giorgia Mae"
     },
     {
         id:35,
-        url:giorgia_tattoo5
+        url:giorgia_tattoo5,
+        name: "Giorgia Mae"
     },
     {
         id:36,
-        url:giorgia_tattoo6
+        url:giorgia_tattoo6,
+        name: "Giorgia Mae"
     },
     {
         id:37,
-        url:juannita_tattoo1
+        url:juannita_tattoo1,
+        name: "Juannita Tahere"
     },
     {
         id:38,
-        url:juannita_tattoo2
+        url:juannita_tattoo2,
+        name: "Juannita Tahere"
     },
     {
         id:39,
-        url:juannita_tattoo3
+        url:juannita_tattoo3,
+        name: "Juannita Tahere"
     },
     {
         id:40,
-        url:karlee_tattoo1
+        url:karlee_tattoo1,
+        name: "Karlee Sabrina"
     },
     {
         id:41,
-        url:karlee_tattoo2
+        url:karlee_tattoo2,
+        name: "Karlee Sabrina"
     },
     {
         id:42,
-        url:karlee_tattoo3
+        url:karlee_tattoo3,
+        name: "Karlee Sabrina"
     },
     {
         id:43,
-        url:karlee_tattoo4
+        url:karlee_tattoo4,
+        name: "Karlee Sabrina"
     },
     {
         id:44,
-        url:karlee_tattoo5
+        url:karlee_tattoo5,
+        name: "Karlee Sabrina"
     },
     {
         id:45,
-        url:karlee_tattoo6
+        url:karlee_tattoo6,
+        name: "Karlee Sabrina"
     },
     {
         id:46,
-        url:karlee_tattoo7
+        url:karlee_tattoo7,
+        name: "Karlee Sabrina"
     },
     {
         id:47,
-        url:kim_tattoo1
+        url:kim_tattoo1,
+        name: "Miss Kimberley"
     },
     {
         id:48,
-        url:kim_tattoo2
+        url:kim_tattoo2,
+        name: "Miss Kimberley"
     },
     {
         id:49,
-        url:kim_tattoo3
+        url:kim_tattoo3,
+        name: "Miss Kimberley"
     },
     {
         id:50,
-        url:michelle_tattoo1
+        url:michelle_tattoo1,
+        name: "Michelle Carlton"
     },
     {
         id:51,
-        url:michelle_tattoo2
+        url:michelle_tattoo2,
+        name: "Michelle Carlton"
     },
     {
         id:52,
-        url:michelle_tattoo3
+        url:michelle_tattoo3,
+        name: "Michelle Carlton"
     },
     {
         id:53,
-        url:michelle_tattoo3
+        url:michelle_tattoo3,
+        name: "Michelle Carlton"
     },
     {
         id:54,
-        url:michelle_tattoo4
+        url:michelle_tattoo4,
+        name: "Michelle Carlton"
     },
     {
         id:55,
-        url:michelle_tattoo5
+        url:michelle_tattoo5,
+        name: "Michelle Carlton"
     },
     {
         id:56,
-        url:michelle_tattoo6
+        url:michelle_tattoo6,
+        name: "Michelle Carlton"
     },
     {
         id:57,
-        url:michelle_tattoo7
+        url:michelle_tattoo7,
+        name: "Michelle Carlton"
     },
     {
         id:58,
-        url:paytan_tattoo1
+        url:paytan_tattoo1,
+        name: "Paytan Amber"
     },
     {
         id:59,
-        url:paytan_tattoo2
+        url:paytan_tattoo2,
+        name: "Paytan Amber"
     },
     {
         id:60,
-        url:paytan_tattoo3
+        url:paytan_tattoo3,
+        name: "Paytan Amber"
     },
     {
         id:61,
-        url:paytan_tattoo4
+        url:paytan_tattoo4,
+        name: "Paytan Amber"
     },
     {
         id:62,
-        url:paytan_tattoo5
+        url:paytan_tattoo5,
+        name: "Paytan Amber"
     },
     {
         id:63,
-        url:tay_tattoo1
+        url:tay_tattoo1,
+        name: "Tayler Joy"
     },
     {
         id:64,
-        url:tay_tattoo2
+        url:tay_tattoo2,
+        name: "Tayler Joy"
     },
     {
         id:65,
-        url:tay_tattoo3
+        url:tay_tattoo3,
+        name: "Tayler Joy"
     },
     {
         id:66,
-        url:tay_tattoo4
+        url:tay_tattoo4,
+        name: "Tayler Joy"
     },
     {
         id:67,
-        url:tay_tattoo5
+        url:tay_tattoo5,
+        name: "Tayler Joy"
     },
     {
         id:68,
-        url:tay_tattoo6
+        url:tay_tattoo6,
+        name: "Tayler Joy"
     },
     {
         id:69,
-        url:tay_tattoo7
+        url:tay_tattoo7,
+        name: "Tayler Joy"
     },
     {
         id:70,
-        url:teneile_tattoo1
+        url:teneile_tattoo1,
+        name: "Teneile Napoli"
     },
     {
         id:71,
-        url:teneile_tattoo2
+        url:teneile_tattoo2,
+        name: "Teneile Napoli"
     },
     {
         id:72,
-        url:teneile_tattoo3
+        url:teneile_tattoo3,
+        name: "Teneile Napoli"
     },
     {
         id:73,
-        url:teneile_tattoo4
+        url:teneile_tattoo4,
+        name: "Teneile Napoli"
     },
     {
         id:74,
-        url:teneile_tattoo5
+        url:teneile_tattoo5,
+        name: "Teneile Napoli"
     },
     {
         id:75,
-        url:teneile_tattoo6
+        url:teneile_tattoo6,
+        name: "Teneile Napoli"
     },
     {
         id:76,
-        url:teneile_tattoo7
+        url:teneile_tattoo7,
+        name: "Teneile Napoli"
     },
 
 

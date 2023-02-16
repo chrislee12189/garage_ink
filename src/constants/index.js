@@ -41,23 +41,23 @@ export const footerLink = [
         links: [
             {
                 name: "Login",
-                link: "https://www.garageinkv2.com/login"
+                link: "/login"
             },
             {
                 name: "Tattoo of the Week",
-                link: "https://www.garageinkv2.com/artist/totw"
+                link: "/totw"
             },
             {
                 name: "Showcase",
-                link: "https://www.garageinkv2.com/showcase"
+                link: "/showcase"
             },
             {
                 name: "Styles",
-                link: "https://www.garageinkv2.com/showcase/styles"
+                link: "/showcase/styles"
             },
             {
                 name: "Portfolios",
-                link: "https:www.garageinkv2.com/showcase/portfolio"
+                link: "/showcase/portfolio"
             }
         ],
     },
