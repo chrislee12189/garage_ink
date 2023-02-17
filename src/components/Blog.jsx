@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { imgGallery } from '../assets';
 
 const Blog = () => {
 return (
-    <div>Blog</div>
+<div className='text-white'>Test</div>
 )
 }
 

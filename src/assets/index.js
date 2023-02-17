@@ -113,6 +113,76 @@ export const profilePics = [
     Teneile_Profilepic,
 ]
 
+//this is the profile picture of all artists that tattoo the black and grey realism style
+export const blackAndGreyProfilePic = [
+    {
+        id:1,
+        url:Amity_Profilepic,
+        name: 'Amity Napoli'
+    },
+    {
+        id:2,
+        url:Briar_Profilepic,
+        name: 'Briar Celeste'
+    },
+    {
+        id:3,
+        url:Emily_Profilepic,
+        name: "Emily Taylor"
+    },
+    {
+        id:4,
+        url:Kimberly_Profilepic,
+        name: "Miss Kimberly"
+    },
+    {
+        id:5,
+        url:Karlee_Profilepic,
+        name:"Karlee Sabrina"
+    },
+    {
+        id:6,
+        url:Paytan_Profilepic,
+        name: "Paytan Amber"
+    },
+    {
+        id:7,
+        url:Teneile_Profilepic,
+        name: "Teneile Napoli"
+    }
+]
+
+//this is the profile pics of artists that do black work 
+export const blackWorkProfilePic =[
+    {
+        id:1,
+        url:Michelle_Profilepic,
+        name:"Michelle Carlton"
+    }
+]
+
+
+//this is the profile pics of artists that do colour 
+
+export const colourProfilePic =[
+    {
+        id:1,
+        url:Emily_Profilepic,
+        name: "Emily Taylor"
+    },
+    {
+        id:2,
+        url: Tayler_Profilepic,
+        name: "Tayler Joy"
+    }
+]
+
+
+
+
+
+
+
 export const amityTattoos = [
     amity_tattoo1
 ]

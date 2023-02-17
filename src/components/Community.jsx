@@ -1,8 +1,9 @@
 import React from 'react'
+import Blog from './Blog'
 
 const Community = () => {
 return (
-    <div>Community</div>
+    <div><Blog /></div>
 )
 }
 
