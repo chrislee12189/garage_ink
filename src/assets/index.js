@@ -93,6 +93,12 @@ import facebook_icon from './facebook_icon.png';
 import menu_icon from './menu_icon.png';
 import close_icon from './close_icon.png';
 import gold_garage_logo from './garage_gold_logo.jpg';
+import eye_icon from './eye_icon.png';
+
+
+
+
+
 
 export const profilePics = [
     Amity_Profilepic,
@@ -317,6 +323,10 @@ export const imgGallery = [
     teneile_tattoo5,
     teneile_tattoo6,
     teneile_tattoo7
+]
+
+export const formIcons =[
+    eye_icon
 ]
 
 
@@ -705,9 +715,5 @@ export const imgSlides =[
         url:teneile_tattoo7,
         name: "Teneile Napoli"
     },
-
-
-
-
 
 ]
