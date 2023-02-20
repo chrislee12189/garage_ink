@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles';
-import {  blackAndGreyProfilePic, blackWorkProfilePic, colourProfilePic, lineWorkProfilePic } from '../assets'
+import {  blackAndGreyProfilePic, blackWorkProfilePic, colourProfilePic, lineWorkProfilePic } from '../assets';
+import Footer from './Footer';
 
 
 
@@ -77,8 +78,6 @@ return (
             </div>
          )})}
       </div>
-
-
 </>)}
             
 

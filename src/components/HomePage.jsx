@@ -1,12 +1,7 @@
 import React from 'react';
-import  Artists from './Artists';
-import Blog from './Blog';
-import Consultations from './Consultations';
-import Community from './Community';
 import Footer from './Footer';
 import HomeGallery from './HomeGallery';
 import Hero from './Hero';
-import Store from './Store';
 import Location  from './Location';
 import styles from '../styles';
 
@@ -34,12 +29,6 @@ function HomePage () {
                 </div>
                 </div>
             </div>
-        
-                
-                <Blog />
-                <Consultations />
-                <Community />
-                <Store />
                 <Footer/>
                 </div>
             </div>

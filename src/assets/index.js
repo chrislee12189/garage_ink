@@ -97,9 +97,7 @@ import menu_icon from './menu_icon.png';
 import close_icon from './close_icon.png';
 import gold_garage_logo from './garage_gold_logo.jpg';
 import eye_icon from './eye_icon.png';
-
-
-
+import cerberus_pup from './cerberus_pup.jpg';
 
 
 
@@ -115,6 +113,26 @@ export const profilePics = [
     Tayler_Profilepic,
     Teneile_Profilepic,
 ]
+
+export const artistList =[
+
+    'Amity Napoli',
+    'Briar Celeste',
+    'Emily Taylor',
+    'Miss Kimberly',
+    'Karlee Sabrina',
+    'Paytan Amber',
+    'Teneile Napoli',
+    'Crystal Rose',
+    'Michelle Carlton',
+    'Giorgia Mae',
+    'Tayler Joy',
+    'Juannita Tahere',
+    'Cinnamona',
+]
+
+
+
 
 //this is the profile picture of all artists that tattoo the black and grey realism style
 export const blackAndGreyProfilePic = [
@@ -464,7 +482,8 @@ export const imgGallery = [
 ]
 
 export const formIcons =[
-    eye_icon
+    eye_icon,
+    cerberus_pup
 ]
 
 

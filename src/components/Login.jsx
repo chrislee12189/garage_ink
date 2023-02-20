@@ -4,9 +4,14 @@ import styles from '../styles';
 
 const Login = () => {
 return (
-    <section className='min-h-screen flex items-center justify-center'>
+    <section className='min-h-screen flex items-center justify-center relative'>
+
+        <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
+        <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
+        <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
+
         {/* set up left side of container */}
-        <div className='bg-[#2b79ee] flex rounded-2xl shadow-lg max-w-3xl p-5'>
+        <div className='bg-[#2b79ee] flex rounded-2xl shadow-lg max-w-3xl p-5 relative'>
             <div className='sm:w-1/2 px-8'>
                 <h2 className={`${styles.heading2}`}>Login</h2> 
                 <p className={`${styles.paragraph} mt-3`}>Already joined The Garage Ink Community? Log in</p>
@@ -54,6 +59,11 @@ return (
                 <img src={critTattoos[5]} alt='Artist:Critter' className='rounded-2xl sm:block hidden'></img>
             </div>
         </div>
+
+        
+
+
+
     </section>
 )
 }
