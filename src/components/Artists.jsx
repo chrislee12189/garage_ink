@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles';
-import {  blackAndGreyProfilePic, blackWorkProfilePic, colourProfilePic } from '../assets'
+import {  blackAndGreyProfilePic, blackWorkProfilePic, colourProfilePic, lineWorkProfilePic } from '../assets'
+
 
 
 //map through list of artists in style list (b&g or neotrad etc)
@@ -11,11 +12,14 @@ return (
 <>
  {/* section for black and grey realism artist */}
    <div className={`sm:${styles.heading2} text-[24px] flex justify-center items-center w-full`}>The Garage Ink Artists</div>
-   <div className={`sm:${styles.paragraph} sm:text-[26px] text-[16px] flex items-center justify-center sm:mt-8 mt-4 sm:mb-3 mb-6`}>Black and Grey Realism</div>
-      <div className="flex flex-row flex-wrap gap-10 items-center justify-center">
+   <div className={`sm:${styles.paragraph} ${styles.artistCategory}`}>Black and Grey Realism</div>
+   <div className="flex items-center justify-center mx-5 font-poppins text-dimWhite sm:text-[16px] text-[13px]">This style focuses on representing art the way that it appears naturally in the world.</div>
+   <hr className={`${styles.divider}`}></hr>
+      <div className={`${styles.artistContainer}`}>
          {blackAndGreyProfilePic.map((item, index) => {return (
-            <div key={index} name={item.name}><img src={item.url} className='w-[165px] h-[150px] sm:w-[265px] sm:h-[250px]'></img>
-            <div className={`${styles.paragraph} mt-3 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div key={index} name={item.name}><a href={item.insta}><img src={item.url} className={`${styles.artistCard}`}></img></a>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.yoe}</div>
             </div>
          )})}
       </div>
@@ -23,29 +27,56 @@ return (
 
 
 {/* this is the section for artists who do black work */}
-<div className={`sm:${styles.paragraph} sm:text-[26px] text-[16px] flex items-center justify-center sm:mt-8 mt-4 sm:mb-3 mb-6`}>Black Work</div>
-      <div className="flex flex-row flex-wrap gap-10 items-center justify-center">
+<div className={`sm:${styles.paragraph} ${styles.artistCategory}`}>Black Work</div>
+<div className="flex items-center justify-center mx-5 font-poppins text-dimWhite sm:text-[16px] text-[13px]">This style incorporates only solid blacks and stylised design. It borrows from realism and accentuates certain aspects to compliment the shape of our bodies. </div>
+<hr className={`${styles.divider}`}></hr>
+      <div className={`${styles.artistContainer}`}>
          {blackWorkProfilePic.map((item, index) => {return (
-            <div key={index} name={item.name}><img src={item.url} className='w-[165px] h-[150px] sm:w-[265px] sm:h-[250px]'></img>
-            <div className={`${styles.paragraph} mt-3 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div key={index} name={item.name}>
+               <a href={item.insta}>
+               <img src={item.url} className={`${styles.artistCard}`}></img>
+               </a>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.yoe}</div>
             </div>
          )})}
       </div>
+
 
 
 
  {/* this is the section for artists that do colour realism or colour styles */}
 
-<div className={`sm:${styles.paragraph} sm:text-[26px] text-[16px] flex items-center justify-center sm:mt-8 mt-4 sm:mb-3 mb-6`}>Colour Artists</div>
-      <div className="flex flex-row flex-wrap gap-10 items-center justify-center">
+<div className={`sm:${styles.paragraph} ${styles.artistCategory}`}>Colour Artists</div>
+<div className="flex items-center justify-center mx-5 font-poppins text-dimWhite sm:text-[16px] text-[13px]">This style is self explanatory. It implements vivid and solid colours that help bring designs to life.</div>
+<hr className={`${styles.divider}`}></hr>
+      <div className={`${styles.artistContainer}`}>
          {colourProfilePic.map((item, index) => {return (
-            <div key={index} name={item.name}><img src={item.url} className='w-[165px] h-[150px] sm:w-[265px] sm:h-[250px]'></img>
-            <div className={`${styles.paragraph} mt-3 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div key={index} name={item.name}>
+               <a href={item.insta}>
+                  <img src={item.url} className={`${styles.artistCard}`}></img>
+               </a>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.yoe}</div>
             </div>
          )})}
       </div>
 
-
+{/*this section is for artists that do line work*/}
+<div className={`sm:${styles.paragraph} ${styles.artistCategory}`}>Stylised Realism and Line Work Artists</div>
+<div className="flex items-center justify-center mx-5 font-poppins text-dimWhite sm:text-[16px] text-[13px]">This style leverages lines and negative space to help contrast the design. This style is broad and ranges from realistic with soft shading techniques, to abstract and flowing lines. This style compliments all body types.</div>
+<hr className={`${styles.divider}`}></hr>
+      <div className={`${styles.artistContainer}`}>
+         {lineWorkProfilePic.map((item, index) => {return (
+            <div key={index} name={item.name}>
+               <a href={item.insta}>
+                  <img src={item.url} className={`${styles.artistCard}`}></img>
+               </a>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer `}>{item.name}</div>
+            <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.yoe}</div>
+            </div>
+         )})}
+      </div>
 
 
 </>)}

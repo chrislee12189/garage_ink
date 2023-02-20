@@ -10,9 +10,11 @@ import briar_tattoo6 from './briar_tattoo6.jpg';
 import briar_tattoo7 from  './briar_tattoo7.jpg';
 import briar_tattoo8 from './briar_tattoo8.jpg';
 import briar_tattoo9 from './briar_tattoo9.jpg';
+import Cim_Profilepic from './Cim_Profilepic.jpg';
 import cim_tattoo1 from './cim_tattoo1.jpg';
 import cim_tattoo2 from './cim_tattoo2.jpg';
 import cim_tattoo3 from './cim_tattoo3.jpg';
+import Crystal_Profilepic from './Crystal_Profilepic.jpg';
 import crit_tattoo1 from './crit_tattoo1.jpg';
 import crit_tattoo2 from './crit_tattoo2.jpg';
 import crit_tattoo3 from './crit_tattoo3.jpg';
@@ -32,6 +34,7 @@ import em_tattoo7 from './em_tattoo7.jpg';
 import em_tattoo8 from './em_tattoo8.jpg';
 import em_tattoo9 from './em_tattoo9.jpg';
 import em_tattoo10 from './em_tattoo10.jpg';
+import Giorgia_Profilepic from './Giorgia_Profilepic.jpg';
 import giorgia_tattoo1 from './giorgia_tattoo1.jpg';
 import giorgia_tattoo2 from './giorgia_tattoo2.jpg';
 import giorgia_tattoo3 from './giorgia_tattoo3.jpg';
@@ -118,37 +121,66 @@ export const blackAndGreyProfilePic = [
     {
         id:1,
         url:Amity_Profilepic,
-        name: 'Amity Napoli'
+        name: 'Amity Napoli',
+        yoe: 'Exp: 1 yrs',
+        available: 'True',
+        insta: "https://www.instagram.com/amity.napoli/?hl=en"
     },
     {
         id:2,
         url:Briar_Profilepic,
-        name: 'Briar Celeste'
+        name: 'Briar Celeste',
+        yoe: 'Exp: 11 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/briar.celeste.art/?hl=en'
     },
     {
         id:3,
         url:Emily_Profilepic,
-        name: "Emily Taylor"
+        name: "Emily Taylor",
+        yoe: 'Exp: 10 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/em.taylor_tattoo/?hl=en'
     },
     {
         id:4,
         url:Kimberly_Profilepic,
-        name: "Miss Kimberly"
+        name: "Miss Kimberly",
+        yoe: 'Exp: 13 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/misskimberley_tattoos/?hl=en'
     },
     {
         id:5,
         url:Karlee_Profilepic,
-        name:"Karlee Sabrina"
+        name:"Karlee Sabrina",
+        yoe: 'Exp: 9 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/karleesabrina/?hl=en'
     },
     {
         id:6,
         url:Paytan_Profilepic,
-        name: "Paytan Amber"
+        name: "Paytan Amber",
+        yoe: 'Exp: 7 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/paytanamber.tattoos/?hl=en'
     },
     {
         id:7,
         url:Teneile_Profilepic,
-        name: "Teneile Napoli"
+        name: "Teneile Napoli",
+        yoe: 'Exp: 15 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/teneile_napoli/?hl=en'
+    },
+    {
+        id:8,
+        url: Crystal_Profilepic,
+        name: "Crystal Rose",
+        yoe: 'Exp: 9 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/_critt3r/?hl=en'
     }
 ]
 
@@ -157,7 +189,18 @@ export const blackWorkProfilePic =[
     {
         id:1,
         url:Michelle_Profilepic,
-        name:"Michelle Carlton"
+        name:"Michelle Carlton",
+        yoe: 'Exp: 12 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/ladysky_tattoo/?hl=en'
+    },
+    {
+        id:2,
+        url: Giorgia_Profilepic,
+        name: "Giorgia Mae",
+        yoe: 'Exp: 8 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/giorgiamae_/?hl=en'
     }
 ]
 
@@ -168,12 +211,37 @@ export const colourProfilePic =[
     {
         id:1,
         url:Emily_Profilepic,
-        name: "Emily Taylor"
+        name: "Emily Taylor",
+        yoe: 'Exp: 10 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/em.taylor_tattoo/?hl=en'
     },
     {
         id:2,
         url: Tayler_Profilepic,
-        name: "Tayler Joy"
+        name: "Tayler Joy",
+        yoe: 'Exp: 4 yrs',
+        available: 'True',
+        insta: 'https://www.instagram.com/tayler.joy.tattoos/?hl=en'
+    }
+]
+
+export const lineWorkProfilePic =[
+    {
+        id:1,
+        url: Juannita_Profilepic,
+        name: "Juannita Tahere",
+        yoe: 'Exp: 10yrs',
+        available: 'True',
+        insta: "https://www.instagram.com/juannita_t/?hl=en"
+    },
+    {
+        id:2,
+        url: Cim_Profilepic,
+        name: "Cinnamona",
+        yoe: 'Exp: 5 yrs',
+        available: 'True',
+        insta: "https://www.instagram.com/cinnamonatattoo/?hl=en"
     }
 ]
 

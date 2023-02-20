@@ -35,7 +35,7 @@ function HomePage () {
                 </div>
             </div>
         
-                <Artists />
+                
                 <Blog />
                 <Consultations />
                 <Community />
