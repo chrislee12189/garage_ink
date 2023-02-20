@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import styles from '../styles';
 
 const Store = () => {
 return (
-    <div>Store</div>
+    <div className={`${styles.heading2}`}>Store</div>
 )
 }
 

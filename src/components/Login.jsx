@@ -1,8 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import { critTattoos, formIcons } from '../assets';
 import styles from '../styles';
 
 const Login = () => {
+const [showPassword, setShowPassword] = useState(false);
+const togglePassword = () => {setShowPassword(!showPassword)};
+
 return (
     <section className='min-h-screen flex items-center justify-center relative'>
 
@@ -24,8 +28,8 @@ return (
 
                     {/* set up div to add icon to show/hide password */}
                     <div className='relative'>
-                    <input className='p-2 mt-3 rounded-xl border w-full' type='password' placeholder='Password' />
-                    <img src={formIcons[0]} className='absolute top-1/2 right-3 -translate-y-1/2 h-[25px] w-[25px] mt-1'/>
+                    <input className='p-2 mt-3 rounded-xl border w-full' type={showPassword ? 'text' : 'password'} placeholder='Password' />
+                    <img src={formIcons[0]} className='absolute top-1/2 right-3 -translate-y-1/2 h-[25px] w-[25px] mt-1 cursor-pointer' onClick={togglePassword}/>
                     </div>
 
 
