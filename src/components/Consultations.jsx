@@ -55,10 +55,11 @@ return (
             </div>
 
 <div className='relative'>
-    <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='artist name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
+    <input className=' bg-grey-800 p-2 mt-8 rounded-xl border w-full' type='text' name='artist name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
         
         {menuOpen && (
             <div className='absolute top-10 left-0 w-full bg-white border rounded-xl shadow-lg'>
+                <button className='absolute bg-gray-800 rounded-full w-[25px] top-3 right-5 text-white hover:text-white focus:outline-double' onClick={() => setOpen(false)}>X</button>
         {artistList.map((artist, index) => (
                 <div key={index} className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
             </div>)}
@@ -67,7 +68,7 @@ return (
             
         </div>
             </form>
-            <button className='bg-[#84bffe] rounded-xl py-1 px-8 mt-10 text-white font-poppins hover:scale-110 duration-300 '>Register</button>
+            <button className='bg-gray-800 rounded-xl py-1 px-8 mt-10 text-white font-poppins hover:scale-110 duration-300 '>Register</button>
             </div>
             <div className='w-1/2 sm:block hidden'>
                 <img src={formIcons[1]} alt='Artist: Cinnamona' className='absolute rounded-2xl  w-[50%] top-1/2 right-3 -translate-y-1/2 sm:block hidden mt-1'/>

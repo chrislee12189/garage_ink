@@ -4,7 +4,6 @@ import { navLinks } from '../constants';
 import { logos } from '../assets';
 import { Link } from 'react-router-dom';
 
-//CLOSE BUTTON NOT APPEARING OR WORKING
 
 export const Navbar = () => {
     const  [active, setActive] = useState("Home");
@@ -14,7 +13,7 @@ export const Navbar = () => {
 
 return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-    <img src={logos[0]} alt="hoobank" className="w-[100px] h-[100px] " />
+    <img src={logos[0]} alt="garage_logo" className="w-[100px] h-[100px] " />
 
     <ul className="list-none sm:flex hidden justify-end items-center flex-1 z-10">
         {navLinks.map((nav, index) => (
