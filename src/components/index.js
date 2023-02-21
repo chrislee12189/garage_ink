@@ -13,6 +13,7 @@ import Location from './Location';
 import Login from './Login';
 import Gallery from './Gallery';
 import HomePage from './HomePage';
+import Review from './Review';
 
 
 export {
@@ -30,5 +31,6 @@ export {
     Location,
     Login,
     Gallery,
-    HomePage
+    HomePage,
+    Review
 }

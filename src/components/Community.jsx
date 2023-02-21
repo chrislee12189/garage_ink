@@ -1,9 +1,12 @@
-import React from 'react'
-import Blog from './Blog'
+import React from 'react';
+// import Blog from './Blog'
+import Review from './Review';
+
+
 
 const Community = () => {
 return (
-    <div><Blog /></div>
+    <div className='min-h-screen'><Review /></div>
 )
 }
 
