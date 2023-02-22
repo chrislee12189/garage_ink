@@ -8,11 +8,17 @@ import { useState } from 'react';
     const initialReviews = [
         {
             id:1,
-            description: "Tattoo was perfect!"
+            artistname: "Amity",
+            description: "Tattoo was perfect!",
+            tips: "Start time could be earlier",
+            rating: 10
         },
         {
             id:2,
-            description: "Tattoo was great, different to my original idea, but great nonetheless!"
+            artistname: "Briar",
+            description: "Tattoo was great, different to my original idea, but great nonetheless!",
+            tips: "No tips, experience was great.",
+            rating: 10
         }
     ]
 

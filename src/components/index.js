@@ -14,6 +14,7 @@ import Login from './Login';
 import Gallery from './Gallery';
 import HomePage from './HomePage';
 import Review from './Review';
+import AddProduct from './AddProduct';
 
 
 export {
@@ -32,5 +33,6 @@ export {
     Login,
     Gallery,
     HomePage,
-    Review
+    Review,
+    AddProduct
 }

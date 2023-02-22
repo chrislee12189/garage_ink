@@ -3,13 +3,17 @@ import { useState } from 'react';
 import { critTattoos, formIcons } from '../assets';
 import styles from '../styles';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 const Login = () => {
 const [showPassword, setShowPassword] = useState(false);
+
 const togglePassword = () => {setShowPassword(!showPassword)};
 
+
 return (
+
+    
     <section className='min-h-screen flex items-center justify-center relative'>
 
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
@@ -31,11 +35,11 @@ return (
                     {/* set up div to add icon to show/hide password */}
                     <div className='relative'>
                     <input className='p-2 mt-3 rounded-xl border w-full' type={showPassword ? 'text' : 'password'} placeholder='Password' />
-                    <img src={formIcons[0]} className='absolute top-1/2 right-3 -translate-y-1/2 h-[25px] w-[25px] mt-1 cursor-pointer' onClick={togglePassword}/>
+                    <img src={formIcons[0]} className='absolute top-1/2 right-3 -translate-y-1/2 h-[25px] w-[25px] mt-1 cursor-pointer'  onClick={togglePassword}/>
                     </div>
 
 
-                    <button className='bg-[#84bffe] rounded-xl text-white mt-3 py-2 w-full hover:scale-105 duration-300'>Login</button>
+                    <button className='bg-[#84bffe] rounded-xl text-white mt-3 py-2 w-full hover:scale-105 duration-300' >Login</button>
                     </div>
                 </form>
 
@@ -66,12 +70,10 @@ return (
             </div>
         </div>
 
-        
-
-
-
     </section>
-)
-}
+)}
+    
+
+
 
 export default Login
