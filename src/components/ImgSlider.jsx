@@ -5,7 +5,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
 
 
-const ImgSlider = (oeuvere) => {
+const ImgSlider = () => {
 
 const [currentIndex, setCurrentIndex] = useState(0)
 

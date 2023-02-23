@@ -113,3 +113,4 @@ export const socialMedia = [
         link: "https://www.facebook.com/garageink4224/"
     }
 ]
+
