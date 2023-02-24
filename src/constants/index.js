@@ -16,8 +16,8 @@ export const navLinks = [
         title: "Gallery",
     },
     {
-        id: "consultations",
-        title: "Consultations"
+        id: "bookings",
+        title: "Bookings"
     },
     {
         id: "community",
@@ -91,7 +91,7 @@ export const footerLink = [
         links: [
             {
                 name: "Consultations",
-                link: "/booking/consultations"
+                link: "/bookings"
             },
             {
                 name: "Prices",
@@ -113,3 +113,4 @@ export const socialMedia = [
         link: "https://www.facebook.com/garageink4224/"
     }
 ]
+

@@ -2,10 +2,7 @@ import React from 'react';
 import { formIcons, artistList} from '../assets'
 import { useState } from 'react';
 import  Footer  from './Footer';
-
 import styles from '../styles';
-
-
 
 const Consultations = () => {
 const [menuOpen, setOpen] = useState(false);
@@ -26,14 +23,17 @@ return (
 
 <div className='bg-[#2b79ee] flex sm:rounded-3xl shadow-lg max-w-7xl p-5 relative'>
     <div className='sm:w-1/2 px-8 m-10'>
-        <h2 className={`${styles.heading2}`}>Appointment Registration</h2> 
+        <h2 className={`${styles.heading2}`}>Consultations</h2> 
         <p className={`${styles.paragraph} mt-3`}>Fill the following fields to the best of your ability. Your artist will contact you for further discussion.</p>
 
                 {/* form fields */}
         <form className='flex flex-col'>
             <div className='items-center'>
-            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='customer name' placeholder='Customer Name' />
-            <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your full name.</label>
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='first name' placeholder='First Name' />
+            <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your first name.</label>
+
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='last name' placeholder='Last Name' />
+            <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your last name.</label>
 
 
             <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='email' placeholder='Email' />

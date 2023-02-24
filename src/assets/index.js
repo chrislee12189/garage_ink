@@ -265,10 +265,6 @@ export const lineWorkProfilePic =[
 
 
 
-
-
-
-
 export const amityTattoos = [
     amity_tattoo1
 ]

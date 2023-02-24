@@ -4,12 +4,22 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
-      colors: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
+        colors: {
         primary: "#00040f",
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
       },
+      
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },

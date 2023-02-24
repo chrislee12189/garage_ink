@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from '../styles';
+import AddProduct from './AddProduct';
 
 const Store = () => {
 return (
-    <div className={`${styles.heading2}`}>Store</div>
+<div><AddProduct /></div>
 )
 }
 
