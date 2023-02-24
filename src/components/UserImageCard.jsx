@@ -30,7 +30,7 @@ const userPostCardArray = [
 ]
 
 const inputFieldStyle ={
-    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded w-[400px] bg-gray-100'
+    input: 'sm:m-4 md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
 }
 
 const UserImageCard = () => {
@@ -73,7 +73,7 @@ return (
 <div className='flex flex-col'>
     
     {/* here we take user input, have them upload a pic */}
-    <input type='file' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' value={userInput.img} onChange={handleChanges}  className={`${inputFieldStyle.input}`}></input>
+    <input type='file' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' value={userInput.img} onChange={handleChanges}  className={`${inputFieldStyle.input}` }></input>
 </div>
 <div>
     {/* here we take the heading from the user */}
@@ -85,7 +85,7 @@ return (
     
     <input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
 </div>
-<button type='submit' className='bg-[#84bffe] rounded-xl ml-4 mt-4 py-1 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
+<button type='submit' className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
 </form>
 </div>)}
 

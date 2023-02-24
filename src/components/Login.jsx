@@ -44,7 +44,7 @@ const handleSubmit = (event) => {
     }
     if (!errorFound) {
     axios
-        .post("/login/users", user)
+        .post("/login", user)
         .then((res) => res.data)
         .then((json) => {
         setUserFetched(true);

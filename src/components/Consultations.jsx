@@ -23,7 +23,7 @@ return (
 
 <div className='bg-[#2b79ee] flex sm:rounded-3xl shadow-lg max-w-7xl p-5 relative'>
     <div className='sm:w-1/2 px-8 m-10'>
-        <h2 className={`${styles.heading2}`}>Bookings</h2> 
+        <h2 className={`${styles.heading2}`}>Consultations</h2> 
         <p className={`${styles.paragraph} mt-3`}>Fill the following fields to the best of your ability. Your artist will contact you for further discussion.</p>
 
                 {/* form fields */}
