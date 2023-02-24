@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styles";
 import { useState } from "react";
 import { imgGallery } from '../assets';
-import UserImageCard from './UserImageCard';
+
 
 // move this array to constants after testing
 const initialReviews = [
@@ -11,16 +11,47 @@ const initialReviews = [
     artistname: "Amity",
     description: "Tattoo was perfect!",
     tips: "Start time could be earlier",
-    rating: 10,
+    rating: 7,
 },
 {
     id: 2,
     artistname: "Briar",
     description:"Tattoo was great, different to my original idea, but great nonetheless!",
     tips: "No tips, experience was great.",
-    rating: 10,
+    rating: 8,
 },
+{
+    id: 3,
+    artistname: "Cinnamona",
+    description:"I was tattooed for 2 days in a row. The artist was accomodating and the experience was awesome.",
+    tips: "No tips, experience was great.",
+    rating: 7,
+
+},
+{
+    id: 4,
+    artistname: "Critt3r",
+    description:"I chose this artist because the are an expert on the style i wanted. They did a perfect job.",
+    tips: "No tips, experience was great.",
+    rating: 7,
+
+},
+{
+    
+    id: 5,
+    artistname: "N/A",
+    description:"The tattoo hurt really bad. It wasnt the artists' fault but it was still a painful experience",
+    tips: "No tips, experience was great.",
+    rating: 1,
+    
+
+}
 ];
+
+
+
+
+
 
 const Review = () => {
   //reviews = all reviews
@@ -37,6 +68,7 @@ const [editReviewId, setEditReviewId] = useState(null)
 
 const [editReviewDesc, setEditReviewDesc] = useState("")
 
+const [tattooOfDayIndex, setTattooOfDayIndex] = useState(0);
   //set up function to target value provided in the add review text area
 const handleOnChange = (e) => {
     setReview(e.target.value)
@@ -91,6 +123,23 @@ const handleEdit = () => {
     setShowEditBox(false)
 };
 
+//set up state to iterate through imgGallery and change the tattoo of the day once every 12 hours
+
+
+useEffect(() => {
+const interval = setInterval(() => {
+    setTattooOfDayIndex((prevIndex) => {
+        if (prevIndex === imgGallery.length - 1) {
+            return 0;} 
+                else {
+                    return prevIndex + 1;}
+        });
+    }, 
+    5000)
+return () => clearInterval(interval)    
+},
+[]);
+
 return (
     <>
     // sets up headings and tattoo of the day picture
@@ -98,30 +147,30 @@ return (
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
-        <h1 className={`${styles.heading2} ${styles.paddingX} pb-10`}>Welcome to the Garage Ink Community</h1>
-        <p className={`${styles.paragraph} ${styles.paddingX} pb-10`}>Here, users can post their tattoos and leave a review!</p>
+        <h1 className={`${styles.heading2} ${styles.paddingX} flex justify-center mt-[50px]`}>Welcome to the Garage Ink Community</h1>
+        <p className={`${styles.paragraph} ${styles.paddingX} flex justify-center mt-[25px]`}>Here, users can post their tattoos and leave a review!</p>
 
         <div className={`${styles.flexCenter} pt-36 w-full`}>
-        <div className={`${styles.flexCenter} bg-green-300 relative`}>
-            <img className={`md:w-[850px] w-[500px] ${styles.paddingX}`} src={imgGallery[54]} />
+        <div className={`${styles.flexCenter} relative`}>
+            <img className={`md:w-[850px] w-[500px] ${styles.paddingX}`} src={imgGallery[tattooOfDayIndex]}/>
         </div>
             <h2 className={` ${styles.paddingX} font-poppins text-white md:text-5xl text-2xl absolute bg-gradient-to-r from-cyan-500 to-blue-500 md:translate-y-[300px] translate-y-[250px] md:-translate-x-[370px] -translate-x-[0px]  rounded-xl p-3`}>Tattoo of the day!</h2>
         </div>
         <div className={`${styles.paddingX} ${styles.paddingY} ${styles.flexCenter} m-20`}>
-        <div className={`${styles.boxWidth}`}>
+        <div className={`${styles.boxWidth} text-center`}>
             <h1 className={`${styles.heading2} relative py-10`}>Garage Ink's Reviews</h1>
         </div>
         </div>
 
-    <div className="flex items-center justify-center p-10 ">
+    <div className="flex items-center justify-center p-10">
       {/* sets up reviews section */}
         <div className="relative border-[6px] border-sky-600 p-10 bg-[#214d76]">
-        <div className={`${styles.paragraph}`}>Have Your Say</div>
+        <div className={`${styles.paragraph} font-bold underline`}>How was your experience?</div>
         {reviews.map((review) => {
             return (
-                <div className=" md:w-[550px] p-20" key={review.id}>
-                    <div className="py-5 bg-gray-300 w-auto rounded-xl px-5 mb-3">{review.description}</div>
-                    <button className={`${styles.buttonHover} py-2 px-2  w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3 `} onClick={() => editReview(review.id)}>Edit</button>
+                <div className=" md:w-[550px] p-5" key={review.id}>
+                    <div className="py-6 bg-gray-300 w-auto rounded-xl px-5 mb-3">{review.description}</div>
+                    <button className={`${styles.buttonHover} py-2 px-2  w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3  `} onClick={() => editReview(review.id)}>Edit</button>
                     <button className={`${styles.buttonHover} py-2 px-2 hover:bg-red-500 w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3`} onClick={() => deleteReview(review.id)}>Delete</button>
                 </div>)
         })}

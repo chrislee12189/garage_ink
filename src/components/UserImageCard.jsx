@@ -30,7 +30,7 @@ const userPostCardArray = [
 ]
 
 const inputFieldStyle ={
-    input: 'sm:m-4 md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
+    input: ' md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
 }
 
 const UserImageCard = () => {
@@ -60,11 +60,11 @@ return (
     <div className=" max-w-5xl md:m-10 m-20 grid md:grid-cols-3 grid-cols-1 gap-6">
     {userPostCard.map((image) => {
         return (
-        <div key={image.id} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <img src={image.img} />
-            <div className="p-4">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">{image.heading}</h5>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{image.description}</p>
+        <div key={image.id} className="bg-[#214d76] border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700">
+            <img src={image.img} className='rounded-2xl p-2' />
+            <div className="p-4 ">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-dimWhite font-poppins">{image.heading}</h5>
+            <p className="mb-3 font-normal text-dimWhite font-poppins dark:text-gray-400">{image.description}</p>
             </div>
         </div>
         )
