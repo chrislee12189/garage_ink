@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { InstagramEmbed } from "react-social-media-embed";
 import styles from "../styles";
-import { useState } from "react";
 import { imgGallery } from '../assets';
+import Footer from './Footer';
 import axios from "axios";
 
 //TODO: -state needs improving, need to make it more simple.
@@ -71,9 +72,6 @@ const [editReviewId, setEditReviewId] = useState(null)
 
 const [editReviewDesc, setEditReviewDesc] = useState("")
 
-//sets initial tattoo of the day to img gallery index 0 (first tattoo in imgGallery array)
-const [tattooOfDayIndex, setTattooOfDayIndex] = useState(0);
-
 
 const [errorMessage, setErrorMessage] = useState(null)
 
@@ -81,8 +79,6 @@ const [errorMessage, setErrorMessage] = useState(null)
 const handleOnChange = (e) => {
     setReview(e.target.value)
 }
-
-
 
 
 
@@ -96,7 +92,7 @@ const addReview = (e) => {
         setErrorMessage("Review must contain a message.")
     } else {
     setErrorMessage(null)
-    axios.post('/community/review', review)
+    axios.post('/community/reviews', review)
     .then((res) => res.data)
     .then((json) => console.log(json))
     }}
@@ -106,12 +102,9 @@ const addReview = (e) => {
 
 
 
-
-
-
 //TODO: delete seems to work but it needs to have additional authentication added to check if user is admin ie if (!user.isAdmin) {return setErrorMessage("Admin privlege needed to delete")}
     const deleteReview = (id) => {
-        axios.delete(`/review/${id}`)
+        axios.delete(`/community/reviews/${id}`)
         .then(res => {
         const newReviews = reviews.filter((review) => review.id !== id)
         setReviews(newReviews)
@@ -126,12 +119,6 @@ const addReview = (e) => {
 
 
 
-
-
-
-
-
-    //EDIT REVIEW ------------------------------------------------------------------------------------------------------------------------------
 
   //here we are applying state to open an edit text area when edit button is clicked
     const editReview = (id) => {
@@ -155,7 +142,7 @@ const handleEdit = () => {
     //if user provides updated description, sent put request to backend to have it updated, include review id in header, description value in body
     else {
         setErrorMessage(null)
-    axios.put(`/reviews/${editReviewId}`, 
+    axios.put(`/community/reviews/${editReviewId}`, 
     {
         description: editReviewDesc,
     }).then(() => {
@@ -175,24 +162,6 @@ const handleEdit = () => {
 
 
 
-//set up state to iterate through imgGallery and change the tattoo of the day once every 12 hours
-
-
-useEffect(() => {
-const interval = setInterval(() => {
-    setTattooOfDayIndex((prevIndex) => {
-        if (prevIndex === imgGallery.length - 1) {
-            return 0;} 
-                else {
-                    return prevIndex + 1;}
-        });
-    }, 
-    5000)
-return () => clearInterval(interval)
-},
-[]);
-
-
 
 
 
@@ -209,19 +178,22 @@ return (
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
         <h1 className={`${styles.heading2} ${styles.paddingX} flex justify-center mt-[50px]`}>Welcome to the Garage Ink Community</h1>
-        <p className={`${styles.paragraph} ${styles.paddingX} flex justify-center mt-[25px]`}>Here, users can post their tattoos and leave a review!</p>
+        <p className={`${styles.paragraph} ${styles.paddingX} md:text-[30px] text-[16px] italic flex justify-center mt-[30px]`}>Here, users can post their tattoos and leave a review!</p>
+<p className="text-white md:text-[30px] text-[16px] font-poppins md:leading-[65px] leading-10 p-5 m-10 text-center">We base ourselves on love and creativity. <br />
+We welcome you to experience the amazing energy that is art in all its forms client and artist alike. <br />
+We are a family and have great appreciation for each other and our wonderful clients. <br />
+</p>
 
-        <div className={`${styles.flexCenter} pt-36 w-full`}>
-        <div className={`${styles.flexCenter} relative`}>
-            <img className={`md:w-[850px] w-[500px] ${styles.paddingX}`} src={imgGallery[tattooOfDayIndex]}/>
-        </div>
-            <h2 className={` ${styles.paddingX} font-poppins text-white md:text-5xl text-2xl absolute bg-gradient-to-r from-cyan-500 to-blue-500 md:translate-y-[300px] translate-y-[250px] md:-translate-x-[370px] -translate-x-[0px]  rounded-xl p-3`}>Tattoo of the day!</h2>
-        </div>
-        <div className={`${styles.paddingX} ${styles.paddingY} ${styles.flexCenter} m-20`}>
-        <div className={`${styles.boxWidth} text-center`}>
-            <h1 className={`${styles.heading2} relative py-10`}>Garage Ink's Reviews</h1>
-        </div>
-        </div>
+
+
+
+
+
+
+
+
+
+<div className={`${styles.flexCenter} pt-36 w-full`}>
 
     <div className="flex items-center justify-center p-10">
       {/* sets up reviews section */}
@@ -252,9 +224,29 @@ return (
         </form>
         </div>
         </div>
+        </div>
+        <h1 className={`${styles.heading2} text-center mb-[90px] mt-[90px] md:px-10 px-28`}>The Garage Ink Instagram is one of the best ways to keep up to date.</h1>
+        <p className='text-white text-center px-10 mb-[60px] leading-10 md:text-[25px] text-[16px]'>
+            
+            We believe in creating a world class experience for both client and artist. The studio is an open and safe environment full of people who are incredibly passionate about all things art.<br />
+
+Our resident artists are of the highest quality in Australia and we also provide the opportunity for clients to get tattooed from the world’s best travelling artists. <br />
+
+With multi awards within our industry world wide. Countless local and international press, over 1 million following across social media Garage Ink is humbled to say we love what we do and are so grateful to you!
+</p>
+
+
+        <div className="flex justify-center relative">
+            <div className='md:w-[45%] w-[90%]'>
+                <InstagramEmbed url='https://www.instagram.com/reel/CjBgNltgzHe'/>
+            </div>
+        </div>
+
         
-    </section>
-    <div className='text-center text-white font-poppins text-[50px] pb-10'>Customer Uploads</div>
+    </section>        
+    <div className="relative md:mt-36 mt-24 md:px-36 px-6">
+            <Footer />
+        </div>
     </>
 )}
 

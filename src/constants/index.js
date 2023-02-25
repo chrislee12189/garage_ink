@@ -21,7 +21,7 @@ export const navLinks = [
     },
     {
         id: "community",
-        title: "Community"
+        title: "Community",
     },
     {
         id: "store",
@@ -45,7 +45,7 @@ export const footerLink = [
             },
             {
                 name: "Tattoo of the Week",
-                link: "/totw"
+                link: "/community"
             },
             {
                 name: "Showcase",
@@ -65,8 +65,8 @@ export const footerLink = [
         title: "Community Links",
         links: [
             {
-                name: "Community",
-                link: "/community"
+                name: "Reviews",
+                link: "/community/reviews"
             },
             {
                 name: "Connect",
@@ -79,10 +79,6 @@ export const footerLink = [
             {
                 name: "Ideas",
                 link: "/ideas"
-            },
-            {
-                name: "Reviews",
-                link: "/review"
             }
         ]
     },

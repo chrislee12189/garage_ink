@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import {  Artists, Community, Consultations, Gallery, Navbar, HomePage, Store, Login} from './components';
+import {  Artists, Community, Consultations, Gallery, Navbar, HomePage, Store, Login, Review} from './components';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Outlet} from 'react-router-dom';
 
 //<> </> fragmenting
@@ -21,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="gallery" element={<Gallery />} />
       <Route path="bookings" element={<Consultations />} />
       <Route path="community" element={<Community />} />
+      <Route path="community/reviews" element={<Review />} />
       <Route path="store" element={<Store />} />
       <Route path="login" element={<Login />} />
     </Route>
