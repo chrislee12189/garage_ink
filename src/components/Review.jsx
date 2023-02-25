@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "../styles";
 import { useState } from "react";
 import { imgGallery } from '../assets';
+import axios from "axios";
 
 //TODO: -state needs improving, need to make it more simple.
 
@@ -65,7 +66,7 @@ const [review, setReview] = useState("")
   //initially, we dont want to show edit box so useState value is set to false
 const [showEditBox, setShowEditBox] = useState(false)
 
-  //this state is used to provide id to save edit button. save edit button is outside of the map function so it will get id from here.
+  //this state is used to provide id to save edit button. save edit button is outside of the map function (which renders reviews to front end) so it will get id from here.
 const [editReviewId, setEditReviewId] = useState(null)
 
 const [editReviewDesc, setEditReviewDesc] = useState("")
@@ -74,59 +75,105 @@ const [editReviewDesc, setEditReviewDesc] = useState("")
 const [tattooOfDayIndex, setTattooOfDayIndex] = useState(0);
 
 
+const [errorMessage, setErrorMessage] = useState(null)
+
   //set up function to target value provided in the add review text area
 const handleOnChange = (e) => {
     setReview(e.target.value)
 }
 
+
+
+
+
+
+
 const addReview = (e) => {
     e.preventDefault()
     //add review inside the reviews
     //callback function to give us access to previous reviews so we can calculate new id for new review
-    setReviews((prevReviews) => {
-    return [
-        ...prevReviews,
-        { id: prevReviews.length + 1, description: review },
-    ]
-    })
-    //set state of review box back to empty after review is added
-    setReview("")
-}
+    if(!review) {
+        setErrorMessage("Review must contain a message.")
+    } else {
+    setErrorMessage(null)
+    axios.post('/community/review', review)
+    .then((res) => res.data)
+    .then((json) => console.log(json))
+    }}
 
-const deleteReview = (id) => {
-    //delete the review from review list that has 'x' ID
-    //filter will return array according to conditional, here we say, return all items in review array so long as they dont match the selected ID. new array will not contain 'x' id, so, it was deleted
-    const newReviews = reviews.filter((review) => review.id !== id)
-    setReviews(newReviews)
-}
+
+
+
+
+
+
+
+
+//TODO: delete seems to work but it needs to have additional authentication added to check if user is admin ie if (!user.isAdmin) {return setErrorMessage("Admin privlege needed to delete")}
+    const deleteReview = (id) => {
+        axios.delete(`/review/${id}`)
+        .then(res => {
+        const newReviews = reviews.filter((review) => review.id !== id)
+        setReviews(newReviews)
+        })
+        //delete the review from review list that has 'x' ID
+        //filter will return array according to conditional, here we say, return all items in review array so long as they dont match the selected ID. new array will not contain 'x' id, so, it was deleted
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    //EDIT REVIEW ------------------------------------------------------------------------------------------------------------------------------
 
   //here we are applying state to open an edit text area when edit button is clicked
-const editReview = (id) => {
+    const editReview = (id) => {
     //show edit box
     setShowEditBox(true)
     setEditReviewId(id)
-    setEditReviewDesc(reviews.find((review) => review.id === id).description)
-}
-
+    setEditReviewDesc(reviews.find((review) => review.id === id).description)}
   //here we are taking the value added by user into text area after clicking edit
-const handleEditReview = (e) => {
+    const handleEditReview = (e) => {
     setEditReviewDesc(e.target.value)
 }
 
-  //here we are applying the change to the description
-  //find review with id, update description of that id and then update reviews state
-const handleEdit = () => {
-    const newReviews = [...reviews]
-    //here, we compare the id of a review from the review list against the review provided in the edit review state
-    //findIndex returns index positon of element found against conditional
-    const reviewIndexToEdit = reviews.findIndex((review) => review.id === editReviewId)
 
-    //get reviews array, target description and update the description of said element at that index
-    newReviews[reviewIndexToEdit].description = editReviewDesc
-    setReviews[newReviews]
-    setEditReviewDesc("")
-    setShowEditBox(false)
+const handleEdit = () => {
+    // Check whether user provides updated description. if not, return error message
+    if (!editReviewDesc) { 
+    const newReviews = [...reviews];
+    const reviewIndexToEdit = reviews.findIndex((review) => review.id === editReviewId);
+    newReviews[reviewIndexToEdit].description = editReviewDesc;
+    setErrorMessage("Failed to provide updated description.")}
+    //if user provides updated description, sent put request to backend to have it updated, include review id in header, description value in body
+    else {
+        setErrorMessage(null)
+    axios.put(`/reviews/${editReviewId}`, 
+    {
+        description: editReviewDesc,
+    }).then(() => {
+        setReviews(newReviews);
+        setEditReviewDesc("");
+        setShowEditBox(false);
+        console.log(res.data)
+    }).catch((error) => {
+        console.log(error);
+    });
+    }
 };
+
+
+
+
+
+
 
 //set up state to iterate through imgGallery and change the tattoo of the day once every 12 hours
 
@@ -144,6 +191,15 @@ const interval = setInterval(() => {
 return () => clearInterval(interval)
 },
 []);
+
+
+
+
+
+
+
+
+
 
 return (
  //sets up headings and tattoo of the day picture    
@@ -191,6 +247,7 @@ return (
             <input value={review} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
             <div>
                 <button className={`${styles.paragraph} p-2 bg-gray-600 w-[100px] rounded-xl hover:bg-green-400`} onClick={addReview}>Add</button>
+                <div>{errorMessage}</div>
             </div>
         </form>
         </div>
