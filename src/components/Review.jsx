@@ -3,6 +3,8 @@ import styles from "../styles";
 import { useState } from "react";
 import { imgGallery } from '../assets';
 
+//TODO: -state needs improving, need to make it more simple.
+
 
 // move this array to constants after testing
 const initialReviews = [
@@ -68,7 +70,10 @@ const [editReviewId, setEditReviewId] = useState(null)
 
 const [editReviewDesc, setEditReviewDesc] = useState("")
 
+//sets initial tattoo of the day to img gallery index 0 (first tattoo in imgGallery array)
 const [tattooOfDayIndex, setTattooOfDayIndex] = useState(0);
+
+
   //set up function to target value provided in the add review text area
 const handleOnChange = (e) => {
     setReview(e.target.value)
@@ -136,13 +141,13 @@ const interval = setInterval(() => {
         });
     }, 
     5000)
-return () => clearInterval(interval)    
+return () => clearInterval(interval)
 },
 []);
 
 return (
+ //sets up headings and tattoo of the day picture    
     <>
-    // sets up headings and tattoo of the day picture
     <section className="relative">
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />

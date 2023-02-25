@@ -16,10 +16,11 @@ const styles = {
 
     artistCard: "w-[150px] h-[150px] sm:w-[360px] sm:h-[350px] rounded-lg cursor-pointer",
     artistCategory: "sm:text-[26px] text-[16px] flex items-center justify-center sm:mt-8 mt-4 sm:mb-10 mb-3",
-    artistContainer: "flex flex-row flex-wrap gap-10 items-center justify-center",
+    artistContainer: "flex flex-row flex-wrap md:gap-[150px] gap-10   items-center justify-center",
 
     divider: "h-px my-10 items-center justify-center bg-gray-200 border-0 dark:bg-gray-70 w-[600px] mx-auto",
-    buttonHover: "hover:scale-105"
+    buttonHover: "hover:scale-105",
+    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded w-[400px] bg-gray-100'
 };
 
 export const layout = {

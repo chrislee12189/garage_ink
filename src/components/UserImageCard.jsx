@@ -5,7 +5,7 @@ import { useState } from 'react'
 //userInput = stores user form inputs
 //userPostCard = array of objcets, user can upload to this array
 
-//TODO: -state needs improving, need to make it more simple. -review card submit box not responsive on sm screens. need to figure out a way around the no local image upload issue faced when submitting a picture from local machine. 
+//TODO: need to figure out a way around the no local image upload issue faced when submitting a picture from local machine. 
 
 
 const userPostCardArray = [
@@ -13,7 +13,7 @@ const userPostCardArray = [
         id:1,
         img: emTattoos[0],
         heading:'Pet Portrait',
-        description: 'I was tattooed by Emily. She tattooed my dog on my leg and i absolutely love the tattoo! It looks exaclty like my fur baby!'
+        description: 'I was tattooed by Emily. She tattooed my cat on my leg and i absolutely love the tattoo! It looks exaclty like my fur baby!'
     },
     {
         id:2,
