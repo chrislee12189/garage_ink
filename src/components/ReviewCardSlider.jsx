@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles";
 
-
+//TODO: POTENTIALLY SCRAP COMPONENT, NOT USED ANYWHERE, DOUBLE CHECK
 
 //TODO: review card slider will map through a hardcoded array of reviews. this is a display piece and wont have user interaction/functionality
 //TODO: user review will be a div at the bottom of page for users to add, edit, save, delete reviews they post

@@ -3,15 +3,65 @@ import { formIcons, artistList} from '../assets'
 import { useState } from 'react';
 import  Footer  from './Footer';
 import styles from '../styles';
+import axios from 'axios';
+
+//TODO: CHECK COMMUNICATION WITH BACKEND
 
 const Consultations = () => {
 const [menuOpen, setOpen] = useState(false);
 const [selectArtist, setSelectArtist] = useState('');
+const [newBooking, setNewBooking] = useState({
+    first_name:"",
+    last_name: "",
+    email:  "",
+    dob:  "",
+    phone_number:  "",
+    description:  "",
+    deposit:  "",
+    artist_name: selectArtist
+})
 
 const artistSelector = (artistList) => {
     setSelectArtist(artistList);
     setOpen(false)
 };
+
+const [errorMessage, setErrorMessage] = useState(null)
+
+
+const handleSubmit = (event) => {
+
+    event.preventDefault();
+    if(!newBooking.first_name){
+        setErrorMessage("You must provide a first name")
+    } else if(newBooking.dob < 18) {
+        setErrorMessage("You must be 18 or older to register a consultation.")
+    } else if(newBooking.phone_number) {
+        setErrorMessage("You must provide a email address")
+    } else {
+            axios.post('/bookings', newBooking)
+    .then((res) => res.data)
+    .then((json) => (console.log(json))); 
+    setNewBooking({
+                first_name:"",
+                last_name: "",
+                email:  "",
+                dob:  "",
+                phone_number:  "",
+                description:  "",
+                deposit:  "",
+                artist_name: selectArtist
+            })}}
+
+    
+const handleChange = (event) => {
+    console.log(event.target.name)
+    setNewBooking({
+        ...newBooking,
+        [event.target.name]: event.target.value
+        
+    })
+}
 
 return (
     <>
@@ -21,41 +71,43 @@ return (
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
 
-<div className='bg-[#2b79ee] flex sm:rounded-3xl shadow-lg max-w-7xl p-5 relative'>
-    <div className='sm:w-1/2 px-8 m-10'>
+<div className='bg-gradient-to-t from-[#2b79ee] to-transparent flex sm:rounded-3xl shadow-lg max-w-7xl p-5 relative'>
+    <div className='md:w-1/2 px-8 m-10'>
         <h2 className={`${styles.heading2}`}>Consultations</h2> 
         <p className={`${styles.paragraph} mt-3`}>Fill the following fields to the best of your ability. Your artist will contact you for further discussion.</p>
 
                 {/* form fields */}
-        <form className='flex flex-col'>
+        <form className='flex flex-col' onSubmit={handleSubmit}>
             <div className='items-center'>
-            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='first name' placeholder='First Name' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='first_name' placeholder='First Name' value={newBooking.first_name} onChange={handleChange} />
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your first name.</label>
 
-            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='last name' placeholder='Last Name' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='last_name' placeholder='Last Name' value={newBooking.last_name} onChange={handleChange}/>
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your last name.</label>
 
 
-            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='email' placeholder='Email' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='email' placeholder='Email' value={newBooking.email} onChange={handleChange} />
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your email address. Ensure spelling is correct.</label>
 
+            <input className='p-2 mt-8 rounded-xl border w-full' type='date' name='dob' placeholder='Date of Birth' value={newBooking.dob} onChange={handleChange}/>
+            <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your date of birth.</label>
 
 
-            <input className='p-2 mt-8 rounded-xl border w-full' type='phone' name='phone number' placeholder='Mobile Number' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='number' name='phone_number' placeholder='Mobile Number' value={newBooking.phone_number} onChange={handleChange} />
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter your mobile number.</label>
 
 
-            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='description' placeholder='Description' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='description' placeholder='Description' value={newBooking.description} onChange={handleChange} />
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Enter a brief description of the Style, Location and Size. Explain your ideas as best as possible.</label>
 
 
-            <input className='p-2 mt-8 rounded-xl border w-full' type='number' min='100' name='deposit' placeholder='Deposit' />
+            <input className='p-2 mt-8 rounded-xl border w-full' type='number' min='100' name='deposit' placeholder='Deposit' value={newBooking.deposit} onChange={handleChange}/>
             <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>Minimum deposit amount is $100.</label>
             
             </div>
 
 <div className='relative'>
-    <input className=' bg-grey-800 p-2 mt-8 rounded-xl border w-full' type='text' name='artist name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
+    <input className=' bg-grey-800 p-2 mt-8 rounded-xl border w-full' type='text' name='artist_name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
         
         {menuOpen && (
             <div className='absolute top-10 left-0 w-full bg-white border rounded-xl shadow-lg'>
@@ -67,11 +119,12 @@ return (
             Select the Artist you want from the drop down menu.</label>
             
         </div>
+        <div>{errorMessage}</div>
             </form>
-            <button className='bg-gray-800 rounded-xl py-1 px-8 mt-10 text-white font-poppins hover:scale-110 duration-300 '>Register</button>
+            <button className='bg-gray-800 rounded-xl py-1 px-8 mt-10 text-white font-poppins hover:scale-110 duration-300' type='submit' onClick={handleSubmit}>Register</button>
             </div>
             <div className='w-1/2 sm:block hidden'>
-                <img src={formIcons[1]} alt='Artist: Cinnamona' className='absolute rounded-2xl  w-[50%] top-1/2 right-3 -translate-y-1/2 sm:block hidden mt-1'/>
+                <img src={formIcons[1]} alt='Artist: Cinnamona' className='absolute rounded-2xl w-[50%] top-1/2 right-3 -translate-y-1/2 md:block hidden mt-1'/>
             </div>
             
             </div>

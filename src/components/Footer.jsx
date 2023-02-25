@@ -2,8 +2,23 @@ import React from 'react';
 import styles from '../styles';
 import { logos } from '../assets';
 import { footerLink, socialMedia } from '../constants';
+import { Link, useLinkClickHandler } from 'react-router-dom';
 
-const Footer = () => (
+
+
+
+
+{/* <Link to={`${nav.id}`}>{nav.title}</Link> */}
+const Footer = () => {
+
+
+const handleClick = () => {
+        window.scrollTo(0, 0)
+        }
+    
+    
+
+    return (
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
     <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
         <div className="flex-[1] flex flex-col justify-start mr-10">
@@ -28,7 +43,7 @@ const Footer = () => (
                 <li
                     key={link.name}
                     className={`font-poppins font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"}`}>
-                    {link.name}
+                    <Link to={link.link} onClick={handleClick}>{link.name}</Link>
                 </li>
                 ))}
             </ul>
@@ -53,6 +68,6 @@ const Footer = () => (
         </div>
     </div>
     </section>
-);
+)};
 
 export default Footer;

@@ -10,7 +10,7 @@ return (
             {/* image carousel component goes here*/ }
             {/* currently some images inside the slider do not fit very well */ }
             <ImgSlider />
-            <p className={`cursor-pointer mt-0 ${styles.flexCenter} ${styles.paragraph}`}>Enter Gallery</p>
+            <a href="/gallery" className={`cursor-pointer mt-0 ${styles.flexCenter} ${styles.paragraph}`}>Enter Gallery</a>
         </div>
     </section>
 )

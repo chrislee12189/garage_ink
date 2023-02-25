@@ -15,7 +15,7 @@ import Gallery from './Gallery';
 import HomePage from './HomePage';
 import Review from './Review';
 import AddProduct from './AddProduct';
-
+import UserImageCard from './UserImageCard';
 
 export {
     Artists,
@@ -34,5 +34,6 @@ export {
     Gallery,
     HomePage,
     Review,
-    AddProduct
+    AddProduct,
+    UserImageCard
 }

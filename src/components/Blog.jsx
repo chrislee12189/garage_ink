@@ -1,5 +1,5 @@
 import React from 'react';
-import { imgGallery } from '../assets';
+
 
 const Blog = () => {
 return (
