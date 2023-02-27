@@ -28,7 +28,6 @@ const artistSelector = (artistList) => {
 
 const [errorMessage, setErrorMessage] = useState(null)
 
-
 const handleSubmit = (event) => {
 
     event.preventDefault();

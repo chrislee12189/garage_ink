@@ -98,8 +98,14 @@ import close_icon from './close_icon.png';
 import gold_garage_logo from './garage_gold_logo.jpg';
 import eye_icon from './eye_icon.png';
 import cerberus_pup from './cerberus_pup.jpg';
-
-
+import zoowrap_carepack from './zoowrap_carepack.jpg';
+import h2ocean from './h2ocean.jpg';
+import zw_cream from './zw_cream.jpg';
+import oracle_cards from './oracle_cards.jpg';
+import timmyc_shorts from './timmyc_shorts.jpg';
+import timmyc_shirt from './timmyc_shirt.jpg';
+import em_print from './em_print.jpg';
+import briar_print from './briar_print.jpg';
 
 export const profilePics = [
     Amity_Profilepic,
@@ -869,4 +875,18 @@ export const imgSlides =[
         name: "Teneile Napoli"
     },
 
+]
+
+export const storeItems = [
+    zoowrap_carepack,
+    h2ocean,
+    zw_cream,
+    oracle_cards,
+    timmyc_shirt,
+    timmyc_shorts
+]
+
+export const prints = [
+    em_print,
+    briar_print
 ]

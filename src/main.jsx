@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 //url of backend api.
-axios.defaults.baseURL='http://localhost:3005'
+axios.defaults.baseURL='http://127.0.0.1:5173'
 
 //if we  intercept request, it changes the request object before it hits the backend api
 axios.interceptors.request.use((config) => {

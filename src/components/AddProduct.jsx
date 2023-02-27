@@ -66,11 +66,11 @@ const AddProduct = () => {
             {/* change default behaviour of form submit, control it by passing in a function */}
             <form onSubmit={handleSubmit}>
                 <div className='flex flex-col'>
-                    <input className={`${styles.input}`} type='text' name='title' placeholder='Product Name' value={product.title} onChange={handleChanges}/>
-                    <input className={`${styles.input}`} type='text' name='description' placeholder='Description' value={product.description} onChange={handleChanges}/>
-                    <input className={`${styles.input}`} type='file' name='image' placeholder='Image' accept='.png, .jpg, .jpeg' />
-                    <input className={`${styles.input}`} type='number' name='price' placeholder='Price' value={product.price} onChange={handleChanges}/>
-                    <input className={`${styles.input}`} type='number' name='stock' placeholder='Stock' value={product.stock} onChange={handleChanges}/>
+                    <input className={`${styles.input} px-2`} type='text' name='title' placeholder='Product Name' value={product.title} onChange={handleChanges}/>
+                    <input className={`${styles.input} px-2`} type='text' name='description' placeholder='Description' value={product.description} onChange={handleChanges}/>
+                    <input className={`${styles.input} px-2`} type='file' name='image' placeholder='Image' accept='.png, .jpg, .jpeg' />
+                    <input className={`${styles.input} px-2`} type='number' name='price' placeholder='Price' value={product.price} onChange={handleChanges}/>
+                    <input className={`${styles.input} px-2`} type='number' name='stock' placeholder='Stock' value={product.stock} onChange={handleChanges}/>
                     <div>
                     <button type='submit' value='Add Product' className='bg-[#84bffe] rounded-xl ml-4 mt-4 py-1 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Product</button>
                 </div>
