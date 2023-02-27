@@ -49,15 +49,11 @@ export const footerLink = [
             },
             {
                 name: "Showcase",
-                link: "/showcase"
+                link: "/gallery"
             },
             {
                 name: "Styles",
-                link: "/showcase/styles"
-            },
-            {
-                name: "Portfolios",
-                link: "/showcase/portfolio"
+                link: "/styles"
             }
         ],
     },
@@ -67,14 +63,6 @@ export const footerLink = [
             {
                 name: "Reviews",
                 link: "/community/reviews"
-            },
-            {
-                name: "Connect",
-                link: "/connect"
-            },
-            {
-                name: "Share",
-                link: "/share"
             },
             {
                 name: "Ideas",
@@ -91,7 +79,7 @@ export const footerLink = [
             },
             {
                 name: "Prices",
-                link: "/booking/pricing"
+                link: "/prices"
             }
         ]
     }

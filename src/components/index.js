@@ -16,6 +16,9 @@ import HomePage from './HomePage';
 import Review from './Review';
 import AddProduct from './AddProduct';
 import UserImageCard from './UserImageCard';
+import TattooStyles from './TattooStyles';
+import Ideas from './Ideas';
+import Prices from './Prices';
 
 export {
     Artists,
@@ -35,5 +38,8 @@ export {
     HomePage,
     Review,
     AddProduct,
-    UserImageCard
+    UserImageCard,
+    TattooStyles,
+    Ideas,
+    Prices
 }
