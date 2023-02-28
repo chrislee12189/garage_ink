@@ -126,44 +126,44 @@ return (
 {/* gradient end */}
 
 
-  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 relative">
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-      <div class="grid p-6 bg-slate-300 rounded place-content-center sm:p-8">
-        <div class="max-w-md mx-auto text-center lg:text-left">
+  <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 relative">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+      <div className="grid p-6 bg-slate-300 rounded place-content-center sm:p-8">
+        <div className="max-w-md mx-auto text-center lg:text-left">
           <header>
-            <h2 class="text-xl text-center font-bold text-gray-900 sm:text-3xl">Commissioned Prints</h2>
+            <h2 className="text-xl text-center font-bold text-gray-900 sm:text-3xl">Commissioned Prints</h2>
 
-            <p class="mt-4 text-gray-500 text-center text-[22px]">Some of the artists at Garage Ink periodically offer custom commissioned prints. Typically, the artist will provide a theme and then allow for further customisation/requests from the client. They also advertise prints they have completed independently. The price of a print, both commissioned and not, varies depending on factors such as size, detail and materials.</p>
+            <p className="mt-4 text-gray-500 text-center text-[22px]">Some of the artists at Garage Ink periodically offer custom commissioned prints. Typically, the artist will provide a theme and then allow for further customisation/requests from the client. They also advertise prints they have completed independently. The price of a print, both commissioned and not, varies depending on factors such as size, detail and materials.</p>
           </header>
 
-          <a class="inline-block px-6 py-4 mt-12 text-sm font-medium text-black transition bg-blue-400 rounded-xl hover:shadow focus:outline-none focus:ring">
+          <a className="inline-block px-6 py-4 mt-12 text-sm font-medium text-black transition bg-blue-400 rounded-xl hover:shadow focus:outline-none focus:ring">
             Prints are typically advertised via Instagram. Click the photos to be directed to the artists' instagram.
           </a>
         </div>
       </div>
 
-      <div class="lg:col-span-2 lg:py-8">
-        <ul class="grid md:grid-cols-2 grid-cols-1 gap-4">
+      <div className="lg:col-span-2 lg:py-8">
+        <ul className="grid md:grid-cols-2 grid-cols-1 gap-4">
           <li>
             <a href='https://www.instagram.com/em.taylor_tattoo/' >
-              <img src={prints[0]} alt="" class="object-cover w-full rounded aspect-square"/>
+              <img src={prints[0]} alt="" className="object-cover w-full rounded aspect-square"/>
 
-              <div class="mt-3 bg-slate-500">
-                <h3 class={`${styles.paragraph} text-center`}>Emily Taylor - Print 1 - A4
+              <div className="mt-3 bg-slate-500">
+                <h3 className={`${styles.paragraph} text-center`}>Emily Taylor - Print 1 - A4
                 </h3>
 
-                <p class={`${styles.paragraph} text-center`}>$350</p>
+                <p className={`${styles.paragraph} text-center`}>$350</p>
               </div>
             </a>
           </li>
 
           <li>
             <a href='https://www.instagram.com/briar.celeste.art/'>
-              <img src={prints[1]} alt="" class="object-cover w-full rounded aspect-square"/>
-              <div class="mt-3 bg-slate-500">
-                <h3 class={`${styles.paragraph} text-black text-center`}>Briar Celeste - Print 1 - A4</h3>
+              <img src={prints[1]} alt="" className="object-cover w-full rounded aspect-square"/>
+              <div className="mt-3 bg-slate-500">
+                <h3 className={`${styles.paragraph} text-black text-center`}>Briar Celeste - Print 1 - A4</h3>
 
-                <p class={`${styles.paragraph} text-black text-center`}>$350</p>
+                <p className={`${styles.paragraph} text-black text-center`}>$350</p>
               </div>
             </a>
           </li>

@@ -79,7 +79,7 @@ export const footerLink = [
             },
             {
                 name: "Prices",
-                link: "/prices"
+                link: "/bookings/pricing"
             }
         ]
     }

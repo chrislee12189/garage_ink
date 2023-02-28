@@ -21,13 +21,14 @@ const router = createBrowserRouter(
       <Route path="gallery" element={<Gallery />} />
       <Route path="showcase" element={<Gallery />} />
       <Route path="bookings" element={<Consultations />} />
+      <Route path="/bookings/pricing" element={<Prices />} />
       <Route path="community" element={<Community />} />
       <Route path="community/reviews" element={<Review />} />
       <Route path="store" element={<Store />} />
       <Route path="login" element={<Login />} />
       <Route path="styles" element={<TattooStyles />} />
       <Route path="ideas" element={<Ideas />} />
-      <Route path="prices" element={<Prices />} />
+      
     </Route>
   )
 )

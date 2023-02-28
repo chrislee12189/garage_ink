@@ -106,6 +106,18 @@ import timmyc_shorts from './timmyc_shorts.jpg';
 import timmyc_shirt from './timmyc_shirt.jpg';
 import em_print from './em_print.jpg';
 import briar_print from './briar_print.jpg';
+import pricing_bg_img from './pricing_bg_img.jpg';
+import blackandgreyrealism from './blackandgreyrealism.jpg';
+import neotrad from './neotrad.jpg';
+import japtattoo from './japtattoo.jpg';
+import tradtatt from './tradtatt.jpg';
+import blackworktatt from './blackworktatt.jpg';
+import finelinetatts from './finelinetatts.jpg';
+
+
+
+
+
 
 export const profilePics = [
     Amity_Profilepic,
@@ -488,7 +500,15 @@ export const formIcons =[
     cerberus_pup
 ]
 
-
+export const tattooStyles = [
+    blackandgreyrealism,
+    em_tattoo6,
+    neotrad,
+    japtattoo,
+    tradtatt,
+    blackworktatt,
+    finelinetatts
+]
 
 
 
@@ -889,4 +909,12 @@ export const storeItems = [
 export const prints = [
     em_print,
     briar_print
+]
+
+export const pricingPics = [
+    amity_tattoo1,
+    briar_tattoo9,
+    michelle_tattoo2,
+    teneile_tattoo3,
+    pricing_bg_img
 ]

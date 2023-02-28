@@ -12,8 +12,8 @@ const Artists = () => {
 return (
 <div className='bg-gradient-to-t from-[#000102] via-[#2b79ee10] to-[#000102]'>
  {/* section for black and grey realism artist */}
-   <div className={`sm:${styles.heading2} text-[24px] flex justify-center items-center w-full `}>The Garage Ink Artists</div>
-   <div className={`sm:${styles.paragraph} text-[24px] flex justify-center items-center w-full py-10`}>Click the profile picture of the artist you are interested in to be directed to their instagram.</div>
+   <div className={`sm:${styles.heading2} text-[24px] flex justify-center items-center w-full  px-10`}>The Garage Ink Artists</div>
+   <div className={`sm:${styles.paragraph} text-[24px] flex justify-center items-center w-full py-10 px-10`}>Click the profile picture of the artist you are interested in to be directed to their instagram.</div>
    <div className={`sm:${styles.paragraph} ${styles.artistCategory}`}>Black and Grey Realism</div>
    <div className="flex items-center justify-center mx-5 font-poppins text-dimWhite sm:text-[16px] text-[13px]">This style focuses on representing art the way that it appears naturally in the world.</div>
    <hr className={`${styles.divider}`}></hr>
