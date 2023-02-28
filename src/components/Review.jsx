@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 import styles from "../styles";
-import { imgGallery } from '../assets';
 import Footer from './Footer';
 import axios from "axios";
 
@@ -178,7 +177,7 @@ return (
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
         <h1 className={`${styles.heading2} ${styles.paddingX} flex justify-center mt-[50px]`}>Welcome to the Garage Ink Community</h1>
-        <p className={`${styles.paragraph} ${styles.paddingX} md:text-[30px] text-[16px] italic flex justify-center mt-[30px]`}>Here, users can post their tattoos and leave a review!</p>
+        <p className={`${styles.paragraph} ${styles.paddingX} md:text-[30px] text-[16px] italic flex justify-center mt-[30px]`}>Here, users can leave a review to help others understand how their experience was!</p>
 <p className="text-white md:text-[30px] text-[16px] font-poppins md:leading-[65px] leading-10 p-5 m-10 text-center">We base ourselves on love and creativity. <br />
 We welcome you to experience the amazing energy that is art in all its forms client and artist alike. <br />
 We are a family and have great appreciation for each other and our wonderful clients. <br />

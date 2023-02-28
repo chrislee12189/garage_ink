@@ -5,19 +5,19 @@ import { socialIcons } from "../assets";
 export const navLinks = [
     {
         id: "/",
-        title: "Home"
+        title: "Home",
     },
     {
-        id: "artists",
-        title: "Artists"
+        id: "showcase/artists",
+        title: "Artists",
     },
     {
-        id: "gallery",
+        id: "showcase/gallery",
         title: "Gallery",
     },
     {
         id: "bookings",
-        title: "Bookings"
+        title: "Bookings",
     },
     {
         id: "community",
@@ -25,11 +25,11 @@ export const navLinks = [
     },
     {
         id: "store",
-        title: "Store"
+        title: "Store",
     },
     {
         id: "login",
-        title: "Login"
+        title: "Login",
     }
 
 ];
@@ -49,7 +49,7 @@ export const footerLink = [
             },
             {
                 name: "Showcase",
-                link: "/gallery"
+                link: "/showcase/gallery"
             },
             {
                 name: "Styles",

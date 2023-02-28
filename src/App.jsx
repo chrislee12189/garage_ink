@@ -17,9 +17,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainPage />}>
       <Route path="/" element={<HomePage />} />
-      <Route path="artists" element={<Artists />} />
-      <Route path="gallery" element={<Gallery />} />
-      <Route path="showcase" element={<Gallery />} />
+      <Route path="showcase/artists" element={<Artists />} />
+      <Route path="showcase/gallery" element={<Gallery />} />
       <Route path="bookings" element={<Consultations />} />
       <Route path="/bookings/pricing" element={<Prices />} />
       <Route path="community" element={<Community />} />
