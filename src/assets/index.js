@@ -98,6 +98,25 @@ import close_icon from './close_icon.png';
 import gold_garage_logo from './garage_gold_logo.jpg';
 import eye_icon from './eye_icon.png';
 import cerberus_pup from './cerberus_pup.jpg';
+import zoowrap_carepack from './zoowrap_carepack.jpg';
+import h2ocean from './h2ocean.jpg';
+import zw_cream from './zw_cream.jpg';
+import oracle_cards from './oracle_cards.jpg';
+import timmyc_shorts from './timmyc_shorts.jpg';
+import timmyc_shirt from './timmyc_shirt.jpg';
+import em_print from './em_print.jpg';
+import briar_print from './briar_print.jpg';
+import pricing_bg_img from './pricing_bg_img.jpg';
+import blackandgreyrealism from './blackandgreyrealism.jpg';
+import neotrad from './neotrad.jpg';
+import japtattoo from './japtattoo.jpg';
+import tradtatt from './tradtatt.jpg';
+import blackworktatt from './blackworktatt.jpg';
+import finelinetatts from './finelinetatts.jpg';
+
+
+
+
 
 
 
@@ -482,7 +501,15 @@ export const formIcons =[
     cerberus_pup
 ]
 
-
+export const tattooStyles = [
+    blackandgreyrealism,
+    em_tattoo6,
+    neotrad,
+    japtattoo,
+    tradtatt,
+    blackworktatt,
+    finelinetatts
+]
 
 
 
@@ -869,4 +896,26 @@ export const imgSlides =[
         name: "Teneile Napoli"
     },
 
+]
+
+export const storeItems = [
+    zoowrap_carepack,
+    h2ocean,
+    zw_cream,
+    oracle_cards,
+    timmyc_shirt,
+    timmyc_shorts
+]
+
+export const prints = [
+    em_print,
+    briar_print
+]
+
+export const pricingPics = [
+    amity_tattoo1,
+    briar_tattoo9,
+    michelle_tattoo2,
+    teneile_tattoo3,
+    pricing_bg_img
 ]

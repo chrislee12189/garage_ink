@@ -1,6 +1,5 @@
 import Navbar from './Navbar';
 import Hero from './Hero';
-import Blog from './Blog';
 import CreateAcc from './CreateAccount';
 import Artists from './Artists';
 import Consultations from './Consultations';
@@ -16,10 +15,12 @@ import HomePage from './HomePage';
 import Review from './Review';
 import AddProduct from './AddProduct';
 import UserImageCard from './UserImageCard';
+import TattooStyles from './TattooStyles';
+import Ideas from './Ideas';
+import Prices from './Prices';
 
 export {
     Artists,
-    Blog,
     Consultations,
     Community,
     CreateAcc,
@@ -35,5 +36,8 @@ export {
     HomePage,
     Review,
     AddProduct,
-    UserImageCard
+    UserImageCard,
+    TattooStyles,
+    Ideas,
+    Prices,
 }

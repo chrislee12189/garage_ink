@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles';
 import { logos } from '../assets';
 import { footerLink, socialMedia } from '../constants';
-import { Link, useLinkClickHandler } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 

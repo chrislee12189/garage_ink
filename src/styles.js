@@ -20,7 +20,7 @@ const styles = {
 
     divider: "h-px my-10 items-center justify-center bg-gray-200 border-0 dark:bg-gray-70 w-[600px] mx-auto",
     buttonHover: "hover:scale-105",
-    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded w-[400px] bg-gray-100'
+    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded md:w-[600px] w-[330px] bg-gray-100'
 };
 
 export const layout = {

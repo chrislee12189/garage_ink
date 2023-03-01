@@ -66,9 +66,9 @@ const userPostCardArray = [
 
 ]
 
-const inputFieldStyle ={
-    input: ' md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
-}
+// const inputFieldStyle ={
+//     input: ' md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
+// }
 
 const UserImageCard = () => {
 //state
@@ -106,24 +106,33 @@ return (
         </div>
         )
 })}
-<form onSubmit={handleSubmit} className='w-[400px]'>
-<div className='flex flex-col'>
+
+
+{/* this section has been commented out due to restrictions regarding browser blocking img uploads. not sure if i have time to set up firebase or cloudinary */}
+
+
+
+
+
+{/* <form onSubmit={handleSubmit} className='w-[400px]'>
+<div className='flex flex-col'> */}
     
     {/* here we take user input, have them upload a pic */}
-    <input type='file' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' value={userInput.img} onChange={handleChanges}  className={`${inputFieldStyle.input}` }></input>
+    {/* <input type='file' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' value={userInput.img} onChange={handleChanges}  className={`${inputFieldStyle.input}` }></input>
 </div>
-<div>
+<div> */}
     {/* here we take the heading from the user */}
     
-    <input type='text' name='heading' placeholder='Title' value={userInput.heading} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
+    {/* <input type='text' name='heading' placeholder='Title' value={userInput.heading} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
 </div>
-<div>
+<div> */}
     {/* here we take description */}
     
-    <input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
+    {/* <input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
 </div>
 <button type='submit' className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
-</form>
+</form> */}
+
 </div>)}
 
 export default UserImageCard

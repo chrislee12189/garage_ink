@@ -1,58 +1,9 @@
 import React, { useState } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 import styles from "../styles";
-import { imgGallery } from '../assets';
 import Footer from './Footer';
 import axios from "axios";
-
-//TODO: -state needs improving, need to make it more simple.
-
-
-// move this array to constants after testing
-const initialReviews = [
-{
-    id: 1,
-    artistname: "Amity",
-    description: "Tattoo was perfect!",
-    tips: "Start time could be earlier",
-    rating: 7,
-},
-{
-    id: 2,
-    artistname: "Briar",
-    description:"Tattoo was great, different to my original idea, but great nonetheless!",
-    tips: "No tips, experience was great.",
-    rating: 8,
-},
-{
-    id: 3,
-    artistname: "Cinnamona",
-    description:"I was tattooed for 2 days in a row. The artist was accomodating and the experience was awesome.",
-    tips: "No tips, experience was great.",
-    rating: 7,
-
-},
-{
-    id: 4,
-    artistname: "Critt3r",
-    description:"I chose this artist because the are an expert on the style i wanted. They did a perfect job.",
-    tips: "No tips, experience was great.",
-    rating: 7,
-
-},
-{
-    
-    id: 5,
-    artistname: "N/A",
-    description:"The tattoo hurt really bad. It wasnt the artists' fault but it was still a painful experience",
-    tips: "No tips, experience was great.",
-    rating: 1,
-    
-
-}
-];
-
-
+import { initialReviews } from "../constants";
 
 
 
@@ -93,7 +44,9 @@ const addReview = (e) => {
     } else {
     setErrorMessage(null)
     axios.post('/community/reviews', review)
-    .then((res) => res.data)
+    .then((res) => res.data,(error) => {
+        setErrorMessage("There was an adding your review: " + error.response.data.error)
+    })
     .then((json) => console.log(json))
     }}
 
@@ -101,8 +54,8 @@ const addReview = (e) => {
 
 
 
+// The delete method is functional but i am not a fan of its purpose. later down the track it will likely be revised to work differently
 
-//TODO: delete seems to work but it needs to have additional authentication added to check if user is admin ie if (!user.isAdmin) {return setErrorMessage("Admin privlege needed to delete")}
     const deleteReview = (id) => {
         axios.delete(`/community/reviews/${id}`)
         .then(res => {
@@ -178,7 +131,7 @@ return (
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
         <h1 className={`${styles.heading2} ${styles.paddingX} flex justify-center mt-[50px]`}>Welcome to the Garage Ink Community</h1>
-        <p className={`${styles.paragraph} ${styles.paddingX} md:text-[30px] text-[16px] italic flex justify-center mt-[30px]`}>Here, users can post their tattoos and leave a review!</p>
+        <p className={`${styles.paragraph} ${styles.paddingX} md:text-[30px] text-[16px] italic flex justify-center mt-[30px]`}>Here, users can leave a review to help others understand how their experience was!</p>
 <p className="text-white md:text-[30px] text-[16px] font-poppins md:leading-[65px] leading-10 p-5 m-10 text-center">We base ourselves on love and creativity. <br />
 We welcome you to experience the amazing energy that is art in all its forms client and artist alike. <br />
 We are a family and have great appreciation for each other and our wonderful clients. <br />

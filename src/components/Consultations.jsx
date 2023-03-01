@@ -28,7 +28,6 @@ const artistSelector = (artistList) => {
 
 const [errorMessage, setErrorMessage] = useState(null)
 
-
 const handleSubmit = (event) => {
 
     event.preventDefault();
@@ -40,7 +39,9 @@ const handleSubmit = (event) => {
         setErrorMessage("You must provide a email address")
     } else {
             axios.post('/bookings', newBooking)
-    .then((res) => res.data)
+            .then((res) => res.data,(error) => {
+                setErrorMessage("There was an error with your booking: " + error.response.data.error)
+            })
     .then((json) => (console.log(json))); 
     setNewBooking({
                 first_name:"",

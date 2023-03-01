@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import styles from '../styles';
-import { UserImageCard, Review, Footer } from './index.js';
+import { UserImageCard, Footer } from './index.js';
 import { imgGallery } from '../assets';
 
 
