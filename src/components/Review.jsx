@@ -45,7 +45,7 @@ const addReview = (e) => {
     setErrorMessage(null)
     axios.post('/community/reviews', review)
     .then((res) => res.data,(error) => {
-        setErrorMessage("There was an error with your booking: " + error.response.data.error)
+        setErrorMessage("There was an adding your review: " + error.response.data.error)
     })
     .then((json) => console.log(json))
     }}
