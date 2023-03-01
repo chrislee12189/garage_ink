@@ -178,10 +178,10 @@ return (
 
 
 {/* Add product */}
-<h1 className='text-white text-center md:pt-[800px] pt-[500px] pb-16 font-poppins md:text-[26px] text-[16px]'>Admin, you can add a product listing to your store by completing the fields below.</h1>
+{/* <h1 className='text-white text-center md:pt-[800px] pt-[500px] pb-16 font-poppins md:text-[26px] text-[16px]'>Admin, you can add a product listing to your store by completing the fields below.</h1> */}
 <div className='flex items-center justify-center pb-56'>
     
-<AddProduct />
+{/* <AddProduct /> */}
 </div>
 </div>
 

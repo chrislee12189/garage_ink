@@ -63,10 +63,6 @@ export const footerLink = [
             {
                 name: "Reviews",
                 link: "/community/reviews"
-            },
-            {
-                name: "Ideas",
-                link: "/ideas"
             }
         ]
     },
@@ -98,3 +94,45 @@ export const socialMedia = [
     }
 ]
 
+export const initialReviews = [
+    {
+        id: 1,
+        artistname: "Amity",
+        description: "Tattoo was perfect!",
+        tips: "Start time could be earlier",
+        rating: 7,
+    },
+    {
+        id: 2,
+        artistname: "Briar",
+        description:"Tattoo was great, different to my original idea, but great nonetheless!",
+        tips: "No tips, experience was great.",
+        rating: 8,
+    },
+    {
+        id: 3,
+        artistname: "Cinnamona",
+        description:"I was tattooed for 2 days in a row. The artist was accomodating and the experience was awesome.",
+        tips: "No tips, experience was great.",
+        rating: 7,
+    
+    },
+    {
+        id: 4,
+        artistname: "Critt3r",
+        description:"I chose this artist because the are an expert on the style i wanted. They did a perfect job.",
+        tips: "No tips, experience was great.",
+        rating: 7,
+    
+    },
+    {
+        
+        id: 5,
+        artistname: "N/A",
+        description:"The tattoo hurt really bad. It wasnt the artists' fault but it was still a painful experience",
+        tips: "No tips, experience was great.",
+        rating: 1,
+        
+    
+    }
+    ];

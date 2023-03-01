@@ -1,6 +1,5 @@
 import Navbar from './Navbar';
 import Hero from './Hero';
-import Blog from './Blog';
 import CreateAcc from './CreateAccount';
 import Artists from './Artists';
 import Consultations from './Consultations';
@@ -22,7 +21,6 @@ import Prices from './Prices';
 
 export {
     Artists,
-    Blog,
     Consultations,
     Community,
     CreateAcc,
@@ -41,5 +39,5 @@ export {
     UserImageCard,
     TattooStyles,
     Ideas,
-    Prices
+    Prices,
 }
