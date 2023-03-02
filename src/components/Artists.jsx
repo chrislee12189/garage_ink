@@ -19,7 +19,7 @@ return (
    <hr className={`${styles.divider}`}></hr>
       <div className={`${styles.artistContainer}`}>
          {blackAndGreyProfilePic.map((item, index) => {return (
-            <div key={index} name={item.name}><a href={item.insta}><img src={item.url} className={`${styles.artistCard}`}></img></a>
+            <div key={index} name={item.name}><a href={item.insta} target="_blank"><img src={item.url} className={`${styles.artistCard}`}></img></a>
             <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer`}>{item.name}</div>
             <div className={`${styles.paragraph} mt-3 mb-5 ss:text-12[px] hover:cursor-pointer `}>{item.yoe}</div>
             </div>

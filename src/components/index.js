@@ -18,6 +18,7 @@ import UserImageCard from './UserImageCard';
 import TattooStyles from './TattooStyles';
 import Ideas from './Ideas';
 import Prices from './Prices';
+import Register from './Register';
 
 export {
     Artists,
@@ -40,4 +41,5 @@ export {
     TattooStyles,
     Ideas,
     Prices,
+    Register
 }
