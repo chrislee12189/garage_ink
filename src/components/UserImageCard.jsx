@@ -1,11 +1,13 @@
 import React from 'react'
 import { emTattoos, giorgiaTattoos, karleeTattoos, teneileTattoos, juannitaTattoos } from '../assets'
+import styles from '../styles'
 import { useState } from 'react'
+import axios from 'axios'
 
 //userInput = stores user form inputs
 //userPostCard = array of objcets, user can upload to this array
 
-//TODO: need to figure out a way around the no local image upload issue faced when submitting a picture from local machine. 
+//TODO: pictures are sent to cloudinary and a url is returned, img can be successfully uploaded and retrieved via that url to rended on front end but they do not stay there due to the url not being stored in backend. need url to be stored in backend so imgs arent lost on refresh.
 
 
 const userPostCardArray = [
@@ -66,30 +68,94 @@ const userPostCardArray = [
 
 ]
 
-// const inputFieldStyle ={
-//     input: ' md:w-[500px] w-[250px] p-2 mt-4 rounded-xl border-rounded bg-gray-100'
-// }
 
 const UserImageCard = () => {
 //state
 
     const [userInput, setUserInput] = useState({img:"", heading:"", description:""})
     const [userPostCard, setUserPostCard] = useState(userPostCardArray)
+
+
+
+
 //when user types in fields, record input, store input value
-    const handleChanges = (event) => {
-        setUserInput({...userInput, [event.target.name]: event.target.value})}
+const handleChanges = (event) => {
+    setUserInput({...userInput, [event.target.name]: event.target.value})}
+
+
+
 //when user clicks add post, handle submit fires to take the values provided in the input fields and add them to the userPostCardArray, it then renders a new
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault()
         const lastID = userPostCard[userPostCard.length -1].id
         const newUserPost = {
             // target last id in array and add 1
             id: lastID + 1,
-            img: userInput.img,
             heading: userInput.heading,
             description: userInput.description}
 
             setUserPostCard([...userPostCard, newUserPost])}
+
+
+const [ fileInputState, setFileInputState ] = useState("")
+const [ selectedFile, setSelectedFile ] = useState("")
+const [ previewSource, setPreviewSource ] = useState()
+const [ imageUrl, setImageUrl ] = useState("")
+
+const handleFileInputChange = (e) => {
+    const file = e.target.files[0]
+    setSelectedFile(file)
+    setFileInputState(e.target.value)
+    previewFile(file)
+}
+
+
+
+const previewFile = (file) => {
+    // built in javascript api to read file url back to user after they select an img to upload
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        setPreviewSource(reader.result)
+    }
+}
+
+
+const handleSubmitFile = (e) => {
+    
+    e.preventDefault();
+    if (!selectedFile) return;
+    const reader = new FileReader();
+    console.log("Submitting file")
+    reader.readAsDataURL(selectedFile);
+    reader.onloadend = () => {
+        uploadImage(reader.result)
+    }
+    
+}
+
+const uploadImage = async (base64EncodedImage) => {
+    console.log(base64EncodedImage)
+    try {
+        const data = new FormData()
+        data.append("file", base64EncodedImage)
+        data.append("upload_preset", "cloudinary_dev_steups")
+        data.append("cloud_name","")
+        const response = await axios.post('https://api.cloudinary.com/v1_1/ds8gbmpln/image/upload', data)
+
+        //give the response.data.url to backend and backend savees to db.
+        setImageUrl(response.data.url)
+        console.log(response.data)
+        setFileInputState('');
+        setPreviewSource('');
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 
 
 //component
@@ -108,31 +174,44 @@ return (
 })}
 
 
-{/* this section has been commented out due to restrictions regarding browser blocking img uploads. not sure if i have time to set up firebase or cloudinary */}
+
+
+{/* USER UPLOAD SECTION */}
 
 
 
 
 
-{/* <form onSubmit={handleSubmit} className='w-[400px]'>
-<div className='flex flex-col'> */}
+
+<form onSubmit={handleSubmitFile} className='w-[400px]'>
+<div className='flex flex-col'> 
     
     {/* here we take user input, have them upload a pic */}
-    {/* <input type='file' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' value={userInput.img} onChange={handleChanges}  className={`${inputFieldStyle.input}` }></input>
+<input type='file' id='fileInput' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' onChange={handleFileInputChange} value={fileInputState} className={`${styles.input}` }></input>
+<input type='text' name='heading' placeholder='Title' value={userInput.heading} onChange={handleChanges} className={`${styles.input}`} ></input>
+<input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${styles.input}`} ></input>
+<button type='submit' onClick={handleSubmit}className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
 </div>
-<div> */}
-    {/* here we take the heading from the user */}
-    
-    {/* <input type='text' name='heading' placeholder='Title' value={userInput.heading} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
-</div>
-<div> */}
+
+
+</form> 
+
+{previewSource && (<img src={previewSource} alt="chosen picture" className='h-[200px] p-6 m-6' />)}
+
+{/* <img src={imageUrl} alt='user uploaded pic'/> */}
+
+
+
+
+
+
+
+
+
     {/* here we take description */}
     
-    {/* <input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${inputFieldStyle.input}`} ></input>
 </div>
-<button type='submit' className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
-</form> */}
 
-</div>)}
+)}
 
 export default UserImageCard
