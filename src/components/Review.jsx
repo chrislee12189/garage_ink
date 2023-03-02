@@ -13,7 +13,12 @@ const Review = () => {
   //review = 1 review
 const [reviews, setReviews] = useState(initialReviews)
 
-const [review, setReview] = useState("")
+const [review, setReview] = useState({
+    description: "",
+    artistname: "",
+    tips: "",
+    rating: "",
+})
 
   //initially, we dont want to show edit box so useState value is set to false
 const [showEditBox, setShowEditBox] = useState(false)
@@ -28,7 +33,15 @@ const [errorMessage, setErrorMessage] = useState(null)
 
   //set up function to target value provided in the add review text area
 const handleOnChange = (e) => {
-    setReview(e.target.value)
+    const { name, value } = e.target;
+    
+    setReview({
+        ...review,
+        [name]: value
+
+    })
+    
+
 }
 
 
@@ -169,7 +182,10 @@ We are a family and have great appreciation for each other and our wonderful cli
             </div>)}
         <form className='md:w-[550px]'>
             <div className={`${styles.paragraph}`}>Add Review</div>
-            <input value={review} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
+            <input name="description" value={review.description} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
+            <input name="artistname" value={review.artistname} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Artist Name?" />
+            <input name="tips" value={review.tips} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Tips?" />
+            <input name="rating" value={review.rating} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Rating out of 10?" />
             <div>
                 <button className={`${styles.paragraph} p-2 bg-gray-600 w-[100px] rounded-xl hover:bg-green-400`} onClick={addReview}>Add</button>
                 <div>{errorMessage}</div>
