@@ -4,6 +4,7 @@ import styles from "../styles";
 import Footer from './Footer';
 import axios from "axios";
 import { initialReviews } from "../constants";
+import { artistList } from "../assets";
 
 
 
@@ -20,6 +21,8 @@ const [showEditBox, setShowEditBox] = useState(false)
 const [editReviewId, setEditReviewId] = useState(null)
 const [editReviewDesc, setEditReviewDesc] = useState("")
 const [errorMessage, setErrorMessage] = useState(null)
+const [menuOpen, setOpen] = useState(false);
+const [selectArtist, setSelectArtist] = useState('');
 const [review, setReview] = useState({
     description: "",
     artistname: "",
@@ -44,21 +47,32 @@ const handleOnChange = (e) => {
 }
 
 
+const artistSelector = (artistList) => {
+    setSelectArtist(artistList);
+    setOpen(false)
+};
+
+
+
+
 const addReview = (e) => {
     e.preventDefault()
     //add review inside the reviews
     //callback function to give us access to previous reviews so we can calculate new id for new review
-    if(!review) {
-        setErrorMessage("Review must contain a message.")
+    if (!review) {
+        setErrorMessage("Review must contain a message.");
     } else {
-    setErrorMessage(null)
-    axios.post('/community/reviews', review)
-    .then((res) => res.data,(error) => {
-        setErrorMessage("There was an adding your review: " + error.response.data.error)
-    })
-    .then((json) => console.log(json))
-    }}
-
+        setErrorMessage(null);
+        axios.post("/community/reviews", review)
+        .then((response) => {
+            setReviews([...reviews, response.data])
+        })
+        .catch((error) => {
+        setErrorMessage("There was an error adding your review: " + error.data
+            );
+        });
+    }
+    };
 
 // The delete method is functional but i am not a fan of its purpose. later down the track it will likely be revised to work differently
 
@@ -85,11 +99,16 @@ const addReview = (e) => {
 }
 
 
+
+
+const newReviews = [...reviews];
+const reviewIndexToEdit = reviews.findIndex((review) => review.id === editReviewId);
+
+
 const handleEdit = () => {
     // Check whether user provides updated description. if not, return error message
     if (!editReviewDesc) { 
-    const newReviews = [...reviews];
-    const reviewIndexToEdit = reviews.findIndex((review) => review.id === editReviewId);
+
     newReviews[reviewIndexToEdit].description = editReviewDesc;
     setErrorMessage("Failed to provide updated description.")}
     //if user provides updated description, sent put request to backend to have it updated, include review id in header, description value in body
@@ -144,12 +163,10 @@ We are a family and have great appreciation for each other and our wonderful cli
 
 
 
-
-
 <div className={`${styles.flexCenter} pt-36 w-full`}>
 
     <div className="flex items-center justify-center p-10">
-        
+
       {/* sets up reviews section */}
         <div className="relative border-[6px] border-sky-600 p-10 bg-[#214d76]">
         <div className={`${styles.paragraph} font-bold underline`}>How was your experience?</div>
@@ -171,7 +188,19 @@ We are a family and have great appreciation for each other and our wonderful cli
         <form className='md:w-[550px]'>
             <div className={`${styles.paragraph}`}>Add Review</div>
             <input name="description" value={review.description} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
-            <input name="artistname" value={review.artistname} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Artist Name?" />
+            
+            <div className='relative'>
+            <input className=' md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300' type='text' name='artist_name' placeholder='Select Artist from the dropdown' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
+        
+        {menuOpen && (
+            <div className='absolute top-20 left-0 w-full bg-white border rounded-xl shadow-lg'>
+                <button className='absolute bg-gray-800 rounded-full w-[25px] top-3 right-5 text-white hover:text-white focus:outline-double' onClick={() => setOpen(false)}>X</button>
+        {artistList.map((artist, index) => (
+                <div key={index} className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
+            </div>)}
+            
+        </div>
+
             <input name="tips" value={review.tips} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Tips?" />
             <input name="rating" value={review.rating} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Rating out of 10?" />
             <div>
