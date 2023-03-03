@@ -190,13 +190,13 @@ We are a family and have great appreciation for each other and our wonderful cli
             <input name="description" value={review.description} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
             
             <div className='relative'>
-            <input className=' md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300' type='text' name='artist_name' placeholder='Select Artist from the dropdown' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
+            <input className=' md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300' type='text' name='artist_name' value={review.artistname} placeholder='Select Artist from the dropdown' onClick={() => setOpen(true)} readOnly/>
         
         {menuOpen && (
             <div className='absolute top-20 left-0 w-full bg-white border rounded-xl shadow-lg'>
                 <button className='absolute bg-gray-800 rounded-full w-[25px] top-3 right-5 text-white hover:text-white focus:outline-double' onClick={() => setOpen(false)}>X</button>
         {artistList.map((artist, index) => (
-                <div key={index} className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
+                <div key={index}  className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
             </div>)}
             
         </div>
