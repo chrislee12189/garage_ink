@@ -11,9 +11,24 @@ export const Navbar = () => {
     const close = logos[2]
     const menu = logos[1]
 
+
+
+    //navbar renders full width across the top on big screens and swaps to hamburger menu on medium and small. Jye has had issues with the flex hidden properites that target the breakpoints and trigger the swappping from full to hamburger. Could not recreate his issue and tested it with simon who used a mac and could not find an issue. Unsure how to replicate it as it seems specific to one machine. 
+    //if your machine happens to have the same problem, you can manipulate the breakpoints/flex hidden properites to get it to appear permanently.
+    //the line of code relevant to this explanation is line 24: <ul className="list-none md:flex hidden justify-end items-center flex-1 z-10">
+
+
+
+
+
+
+
 return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
     <img src={logos[0]} alt="garage_logo" className="w-[100px] h-[100px] " />
+
+
+    {/* set up nav and breakpoint to hide full width nav on smaller devices  */}
 
     <ul className="list-none md:flex hidden justify-end items-center flex-1 z-10">
         {navLinks.map((nav, index) => (
@@ -23,6 +38,7 @@ return (
     ))}
     </ul>
 
+            {/* set up hamburger menu nav for smaller devices */}
     <div className="md:hidden flex flex-1 justify-end items-center">
         <img src={toggle ? close : menu} alt="menu" className="w-[28px] h-[28px] object-contain" onClick={() => setToggle(!toggle)}/>
 

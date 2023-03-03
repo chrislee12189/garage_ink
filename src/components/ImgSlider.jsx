@@ -7,9 +7,10 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
 const ImgSlider = () => {
 
+    //STATE
 const [currentIndex, setCurrentIndex] = useState(0)
 
-
+    //FUNCTIONS
 const prevSlide = () => {
     const isFirst = currentIndex === 0;
     const newIndex = isFirst ? imgSlides.length - 1 : currentIndex -1;

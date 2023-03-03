@@ -28,7 +28,7 @@ const Register = () => {
 return (
 
 
-<form className='flex flex-col  items-center justify-center mt-64 m-auto md:w-1/2 w-auto p-10 bg-slate-700-200'>
+<form className='flex flex-col  items-center justify-center mt-64 m-auto md:w-1/2 w-auto p-10 bg-slate-700'>
     <h1 className={`${styles.paragraph} text-black`}>Enter your details and click submit</h1>
     <input className={styles.input} type="text" placeholder='email' value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })}></input>
     <input className={styles.input} type="text" placeholder='password' value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
@@ -41,5 +41,3 @@ return (
 }
 
 export default Register
-
-// className='gap-2 rounded-xl p-3 m-3

@@ -9,10 +9,17 @@ import { initialReviews } from "../constants";
 
 
 const Review = () => {
+    //STATE
+
   //reviews = all reviews
   //review = 1 review
 const [reviews, setReviews] = useState(initialReviews)
-
+  //initially, we dont want to show edit box so useState value is set to false
+const [showEditBox, setShowEditBox] = useState(false)
+  //this state is used to provide id to save edit button. save edit button is outside of the map function (which renders reviews to front end) so it will get id from here.
+const [editReviewId, setEditReviewId] = useState(null)
+const [editReviewDesc, setEditReviewDesc] = useState("")
+const [errorMessage, setErrorMessage] = useState(null)
 const [review, setReview] = useState({
     description: "",
     artistname: "",
@@ -20,17 +27,9 @@ const [review, setReview] = useState({
     rating: "",
 })
 
-  //initially, we dont want to show edit box so useState value is set to false
-const [showEditBox, setShowEditBox] = useState(false)
-
-  //this state is used to provide id to save edit button. save edit button is outside of the map function (which renders reviews to front end) so it will get id from here.
-const [editReviewId, setEditReviewId] = useState(null)
-
-const [editReviewDesc, setEditReviewDesc] = useState("")
 
 
-const [errorMessage, setErrorMessage] = useState(null)
-
+    //FUNCTIONS
   //set up function to target value provided in the add review text area
 const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +42,6 @@ const handleOnChange = (e) => {
     
 
 }
-
-
-
 
 
 const addReview = (e) => {
@@ -64,9 +60,6 @@ const addReview = (e) => {
     }}
 
 
-
-
-
 // The delete method is functional but i am not a fan of its purpose. later down the track it will likely be revised to work differently
 
     const deleteReview = (id) => {
@@ -79,12 +72,6 @@ const addReview = (e) => {
         //filter will return array according to conditional, here we say, return all items in review array so long as they dont match the selected ID. new array will not contain 'x' id, so, it was deleted
 
     }
-
-
-
-
-
-
 
   //here we are applying state to open an edit text area when edit button is clicked
     const editReview = (id) => {
@@ -134,7 +121,7 @@ const handleEdit = () => {
 
 
 
-
+//COMPONENT
 
 return (
  //sets up headings and tattoo of the day picture    
@@ -162,6 +149,7 @@ We are a family and have great appreciation for each other and our wonderful cli
 <div className={`${styles.flexCenter} pt-36 w-full`}>
 
     <div className="flex items-center justify-center p-10">
+        
       {/* sets up reviews section */}
         <div className="relative border-[6px] border-sky-600 p-10 bg-[#214d76]">
         <div className={`${styles.paragraph} font-bold underline`}>How was your experience?</div>

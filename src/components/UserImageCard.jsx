@@ -86,18 +86,19 @@ const handleChanges = (event) => {
 
 //when user clicks add post, handle submit fires to take the values provided in the input fields and add them to the userPostCardArray, it then renders a new
 
+// handle submit commented out as it was combined with the handleSubmitFile function. will move to delete when im sure it hasnt created more issues
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        const lastID = userPostCard[userPostCard.length -1].id
-        const newUserPost = {
-            // target last id in array and add 1
-            id: lastID + 1,
-            heading: userInput.heading,
-            description: userInput.description}
+    // const handleSubmit = (event) => {
+    //     event.preventDefault()
+    //     const lastID = userPostCard[userPostCard.length -1].id
+    //     const newUserPost = {
+    //         // target last id in array and add 1
+    //         id: lastID + 1,
+    //         heading: userInput.heading,
+    //         description: userInput.description}
 
-            setUserPostCard([...userPostCard, newUserPost])}
+    //         setUserPostCard([...userPostCard, newUserPost])}
 
 
 const [ fileInputState, setFileInputState ] = useState("")
@@ -125,15 +126,24 @@ const previewFile = (file) => {
 
 
 const handleSubmitFile = (e) => {
-    
     e.preventDefault();
+
+
     if (!selectedFile) return;
     const reader = new FileReader();
     console.log("Submitting file")
     reader.readAsDataURL(selectedFile);
     reader.onloadend = () => {
         uploadImage(reader.result)
-    }
+    }    
+    const lastID = userPostCard[userPostCard.length -1].id
+    const newUserPost = {
+        // target last id in array and add 1
+        id: lastID + 1,
+        heading: userInput.heading,
+        description: userInput.description}
+
+        setUserPostCard([...userPostCard, newUserPost])
     
 }
 
@@ -181,16 +191,16 @@ return (
 
 
 
+{/* onSubmit={handleSubmit} */}
 
-
-<form onSubmit={handleSubmitFile} className='w-[400px]'>
+<form  className='w-[400px]'>
 <div className='flex flex-col'> 
     
     {/* here we take user input, have them upload a pic */}
 <input type='file' id='fileInput' accept='.jpeg, .jpg, .png' name='img' placeholder='Upload' onChange={handleFileInputChange} value={fileInputState} className={`${styles.input}` }></input>
 <input type='text' name='heading' placeholder='Title' value={userInput.heading} onChange={handleChanges} className={`${styles.input}`} ></input>
 <input name='description' placeholder='Description' value={userInput.description} onChange={handleChanges} className={`${styles.input}`} ></input>
-<button type='submit' onClick={handleSubmit}className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
+<button type='submit' onClick={handleSubmitFile}className='bg-[#84bffe] rounded-xl ml-4  mt-6 py-3 px-8 text-white font-poppins hover:scale-110 duration-300'>Add Your Post</button>
 </div>
 
 

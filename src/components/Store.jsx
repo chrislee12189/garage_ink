@@ -8,7 +8,17 @@ import { storeItems, prints } from '../assets'
 //Part of this was generated from a free pre built tailwind component library. The link to the component library is: https://tailwindui.com/components/ecommerce/components/product-lists  
 //This pages implemented the 'Simple' pre built component
 
+
+
+
+
 const Store = () => {
+
+
+const storeStyles = {
+  storeImageStyle: 'h-full w-full object-cover object-center',
+  storeDivStyle: 'w-full overflow-hidden rounded-lg bg-gray-200'
+}
 return (
     <>
     <div>
@@ -24,8 +34,8 @@ return (
 
 {/* Product 1 */}
         <a>
-        <div className="w-full overflow-hidden rounded-lg bg-gray-200">
-            <img src={storeItems[0]} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center " />
+        <div className={`${storeStyles.storeDivStyle}`}>
+            <img src={storeItems[0]} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className={`${storeStyles.storeImageStyle}`} />
         </div>
         <h3 className="mt-4 text-sm text-white">Zoo Wrap - Second Skin</h3>
         <p className="mt-1 text-lg  font-medium text-white">$45</p>

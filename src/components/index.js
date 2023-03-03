@@ -16,7 +16,6 @@ import Review from './Review';
 import AddProduct from './AddProduct';
 import UserImageCard from './UserImageCard';
 import TattooStyles from './TattooStyles';
-import Ideas from './Ideas';
 import Prices from './Prices';
 import Register from './Register';
 
@@ -39,7 +38,6 @@ export {
     AddProduct,
     UserImageCard,
     TattooStyles,
-    Ideas,
     Prices,
     Register
 }

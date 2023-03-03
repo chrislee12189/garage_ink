@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 const AddProduct = () => {
+    //STATE
 
     const [product, setProduct] = useState({
         title: "",
@@ -18,11 +19,13 @@ const AddProduct = () => {
 
 
 
+    //FUNCTIONS 
 
     const handleSubmit = (event) => {
         event.preventDefault()
         // console.log("Submitted")
         // console.log(product)
+
 
         //product is checked against validation criteria, if it passes, it sends object to api
         if(!product.title){
@@ -46,8 +49,6 @@ const AddProduct = () => {
                     })}}
 
 
-
-
     const handleChanges = (event) => {
         // console.log(event.target.name)
         // console.log(event.target.value)
@@ -60,6 +61,13 @@ const AddProduct = () => {
             }
         })
     }
+
+
+
+
+        //COMPONENT
+
+
 
     return (
         <section>

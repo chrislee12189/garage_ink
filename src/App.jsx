@@ -31,6 +31,8 @@ const router = createBrowserRouter(
   )
 )
 
+
+//main page set us so that all pages render navbar.
 function MainPage() {
   return (
       <div className="bg-primary w-full overflow-hidden">
@@ -47,4 +49,4 @@ function MainPage() {
 
 
 export default App
-//<p className={`${styles.heading2} p-10`}>Industry Leading <br /> Artists</p>
+

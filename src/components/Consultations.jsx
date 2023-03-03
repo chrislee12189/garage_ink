@@ -8,8 +8,10 @@ import axios from 'axios';
 //TODO: CHECK COMMUNICATION WITH BACKEND
 
 const Consultations = () => {
+    //STATE
 const [menuOpen, setOpen] = useState(false);
 const [selectArtist, setSelectArtist] = useState('');
+const [errorMessage, setErrorMessage] = useState(null)
 const [newBooking, setNewBooking] = useState({
     first_name:"",
     last_name: "",
@@ -21,15 +23,18 @@ const [newBooking, setNewBooking] = useState({
     artist_name: selectArtist
 })
 
+
+
+
+    //FUNCTIONS
 const artistSelector = (artistList) => {
     setSelectArtist(artistList);
     setOpen(false)
 };
 
-const [errorMessage, setErrorMessage] = useState(null)
+
 
 const handleSubmit = (event) => {
-
     event.preventDefault();
     if(!newBooking.first_name){
         setErrorMessage("You must provide a first name")
@@ -54,7 +59,8 @@ const handleSubmit = (event) => {
                 artist_name: selectArtist
             })}}
 
-    
+
+
 const handleChange = (event) => {
     console.log(event.target.name)
     setNewBooking({
@@ -64,20 +70,36 @@ const handleChange = (event) => {
     })
 }
 
+
+
+
+
+    //COMPONENT
+
+
 return (
     <>
 <section className='min-h-screen flex items-center justify-center'>
 
+        {/* gradient set up here */}
+        
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
 
+
+    {/* set up container */}
+
 <div className='bg-gradient-to-t from-[#2b79ee] to-transparent flex sm:rounded-3xl shadow-lg max-w-7xl p-5 relative'>
+
+    {/* left side of container */}
+
     <div className='md:w-1/2 px-8 m-10'>
         <h2 className={`${styles.heading2}`}>Consultations</h2> 
         <p className={`${styles.paragraph} mt-3`}>Fill the following fields to the best of your ability. Your artist will contact you for further discussion.</p>
 
                 {/* form fields */}
+
         <form className='flex flex-col' onSubmit={handleSubmit}>
             <div className='items-center'>
             <input className='p-2 mt-8 rounded-xl border w-full' type='text' name='first_name' placeholder='First Name' value={newBooking.first_name} onChange={handleChange} />
@@ -107,6 +129,8 @@ return (
             
             </div>
 
+{/* last form field here, this adds a drop down menu to select form list + 'x' button to exit list */}
+
 <div className='relative'>
     <input className=' bg-grey-800 p-2 mt-8 rounded-xl border w-full' type='text' name='artist_name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
         
@@ -120,10 +144,19 @@ return (
             Select the Artist you want from the drop down menu.</label>
             
         </div>
+
+        {/* sets up space for error message to display */}
+
         <div>{errorMessage}</div>
             </form>
+
+            {/* sets up register button bottom left */}
+
             <button className='bg-gray-800 rounded-xl py-1 px-8 mt-10 text-white font-poppins hover:scale-110 duration-300' type='submit' onClick={handleSubmit}>Register</button>
             </div>
+
+            {/* right side of container, hidden on small and medium devices */}
+
             <div className='w-1/2 sm:block hidden'>
                 <img src={formIcons[1]} alt='Artist: Cinnamona' className='absolute rounded-2xl w-[50%] top-1/2 right-3 -translate-y-1/2 md:block hidden mt-1'/>
             </div>
