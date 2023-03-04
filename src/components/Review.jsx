@@ -7,17 +7,17 @@ import Footer from './Footer'
 
 function Reviews() {
     const [reviews, setReviews] = useState([]);
+    const [error, setError] = useState("");
     const [newReview, setNewReview] = useState({
     description: "",
     tips: "",
     rating: "",
 });
-const [error, setError] = useState("");
 
 
 
 
-
+    // GET METHOD
 
     useEffect(() => {
         async function fetchReviews() {
@@ -27,6 +27,8 @@ const [error, setError] = useState("");
     fetchReviews();
     }, []);
 
+
+        // DELETE METHOD
     async function deleteReview(id) {
         try {
             await axios.delete(`/community/reviews/${id}`);
@@ -37,8 +39,7 @@ const [error, setError] = useState("");
         }
 
 
-
-
+        // POST METHOD
 
 async function addReview(e) {
     e.preventDefault();
@@ -72,6 +73,7 @@ async function addReview(e) {
 
 return (
     <>
+    {/* containers for top of page: headings, text and reviews list is all sorted out in this section */}
         <section className="relative">
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
@@ -83,7 +85,7 @@ We welcome you to experience the amazing energy that is art in all its forms cli
 We are a family and have great appreciation for each other and our wonderful clients. <br />
 </p>
 
-
+    {/*  begin setting up review functionality/style */}
     <div className="relative border-[6px] border-sky-600 md:w-1/2 w-full rounded-3xl  m-auto p-10 bg-[#1f4d77]">
         <h2 className={`${styles.heading2} font-bold underline pb-6`}>Reviews</h2>
         <div className={`${styles.paragraph} font-bold underline pb-10`}>How was your experience?</div>
@@ -104,6 +106,7 @@ We are a family and have great appreciation for each other and our wonderful cli
 
 
     {/*  form user fills out to add review */}
+    
     <div className="bg-sky-600 relative  md:w-2/3 w-full m-auto rounded-3xl">
         <form onSubmit={addReview} className="flex flex-col md:w-1/2 md:px-2 px-5 w-full m-auto ">
             <label className="font-poppins mt-10 md:p-5 p-3 md:text-[32px] text-[26px] text-white mb-2 bg-slate-800 rounded-xl">New Review:</label>
