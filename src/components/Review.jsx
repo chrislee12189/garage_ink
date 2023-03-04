@@ -5,6 +5,7 @@ import Footer from './Footer';
 import axios from "axios";
 import { initialReviews } from "../constants";
 import { artistList } from "../assets";
+import { render } from "react-dom";
 
 
 
@@ -25,7 +26,7 @@ const [menuOpen, setOpen] = useState(false);
 const [selectArtist, setSelectArtist] = useState('');
 const [review, setReview] = useState({
     description: "",
-    artistname: "",
+    artist_name: selectArtist,
     tips: "",
     rating: "",
 })
@@ -33,13 +34,14 @@ const [review, setReview] = useState({
 
 
     //FUNCTIONS
-  //set up function to target value provided in the add review text area
+  //SETS UP A FUNCTION TO TARGET THE VALUES PROVIDED IN THE ADD REVIEW FIELDS
 const handleOnChange = (e) => {
     const { name, value } = e.target;
     
     setReview({
         ...review,
-        [name]: value
+        [name]: value,
+        artist_name: selectArtist
 
     })
     
@@ -47,32 +49,39 @@ const handleOnChange = (e) => {
 }
 
 
+// THIS FUNCTION SELECTS AN ARTIST FROM A LIST OF ARTISTS, USED IN CONJUCTION WITH ADDING REVIEW FOR USER TO CHOOOSE THEIR ARTIST FROM DROPDOWN MENU
+
 const artistSelector = (artistList) => {
     setSelectArtist(artistList);
     setOpen(false)
 };
 
 
+const renderReviews = () => {
+axios.get(`/community/reviews/`)
+.then(response => {
+    setReviews(response.data)
+}).catch(error => console.log(error))}
 
 
-const addReview = (e) => {
-    e.preventDefault()
-    //add review inside the reviews
-    //callback function to give us access to previous reviews so we can calculate new id for new review
-    if (!review) {
-        setErrorMessage("Review must contain a message.");
-    } else {
-        setErrorMessage(null);
-        axios.post("/community/reviews", review)
-        .then((response) => {
-            setReviews([...reviews, response.data])
-        })
-        .catch((error) => {
-        setErrorMessage("There was an error adding your review: " + error.data
-            );
-        });
-    }
-    };
+
+    //THIS FUNCTION POSTS THE USER REVIEW TO DB
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post('/community/reviews', review)  
+    .then((response) => {
+        setReviews([...reviews, response.data])
+    })   
+    .then((json) => (console.log(json)));
+    setReview({
+        description: "",
+        tips: "",
+        rating: "",
+            })}
+
+
+
 
 // The delete method is functional but i am not a fan of its purpose. later down the track it will likely be revised to work differently
 
@@ -140,6 +149,7 @@ const handleEdit = () => {
 
 
 
+
 //COMPONENT
 
 return (
@@ -190,23 +200,28 @@ We are a family and have great appreciation for each other and our wonderful cli
             <input name="description" value={review.description} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
             
             <div className='relative'>
-            <input className=' md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300' type='text' name='artist_name' value={review.artistname} placeholder='Select Artist from the dropdown' onClick={() => setOpen(true)} readOnly/>
+    <input className=' bg-pink-800 p-2 mt-8 rounded-xl border w-full' type='text' name='artist_name' placeholder='Artist Name' value={selectArtist} onClick={() => setOpen(true)} readOnly/>
         
         {menuOpen && (
-            <div className='absolute top-20 left-0 w-full bg-white border rounded-xl shadow-lg'>
+            <div className='absolute top-10 left-0 w-full bg-white border rounded-xl shadow-lg'>
                 <button className='absolute bg-gray-800 rounded-full w-[25px] top-3 right-5 text-white hover:text-white focus:outline-double' onClick={() => setOpen(false)}>X</button>
         {artistList.map((artist, index) => (
-                <div key={index}  className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
+                <div key={index} className='px-4 py-2 hover:bg-gray-200 cursor-pointer' onClick={() => artistSelector(artist)}> {artist} </div>))}
             </div>)}
+        <label className='font-poppins text-[14px] text-dimWhite bg-grey-500'>
+            Select the Artist you want from the drop down menu.</label>
             
         </div>
 
             <input name="tips" value={review.tips} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Tips?" />
             <input name="rating" value={review.rating} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Rating out of 10?" />
             <div>
-                <button className={`${styles.paragraph} p-2 bg-gray-600 w-[100px] rounded-xl hover:bg-green-400`} onClick={addReview}>Add</button>
+                <button className={`${styles.paragraph} p-2 bg-gray-600 w-[100px] rounded-xl hover:bg-green-400`} onClick={handleSubmit}>Add</button>
                 <div>{errorMessage}</div>
             </div>
+
+
+                    {/* render reviews from get request here....    if user posts a review, it should be rendered here */}
         </form>
         </div>
         </div>
