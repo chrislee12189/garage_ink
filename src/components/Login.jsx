@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { critTattoos, formIcons } from '../assets';
 import Register from './Register';
 import { Modal } from '@mui/material';
@@ -107,10 +107,7 @@ const handleClose = () => {
 return (
     <>
     {/* user fetched query wrapper will likely be removed. doesnt quite do what i want this page to do */}
-    <Modal open={userFetched}>
-        <div className='text-white font-poppins'>Login Successful</div>
-        <button onClick={setOpen(false)}>X</button>
-        </Modal>
+    {userFetched ? (<Modal><div className='text-white font-poppins'>Login Successful</div></Modal>) : (
     <section className='min-h-screen flex items-center justify-center relative'>
 
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
@@ -180,9 +177,9 @@ return (
         </div>
 
     </section>
-    )
-    </>)}
-
+    )}
+    </>
+)}
     
 
 
