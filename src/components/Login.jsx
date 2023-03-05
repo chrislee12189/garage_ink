@@ -109,7 +109,7 @@ return (
     {/* user fetched query wrapper will likely be removed. doesnt quite do what i want this page to do */}
     <Modal open={userFetched}>
         <div className='text-white font-poppins'>Login Successful</div>
-        <button onClick={() => setOpen(false)}>X</button>
+        <button onClick={setOpen(false)}>X</button>
         </Modal>
     <section className='min-h-screen flex items-center justify-center relative'>
 
