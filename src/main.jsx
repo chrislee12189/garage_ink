@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 //url of backend api.
-axios.defaults.baseURL='http://127.0.0.1:3005'
+axios.defaults.baseURL='https://fsatattoo-production.up.railway.app'
 
 
 
