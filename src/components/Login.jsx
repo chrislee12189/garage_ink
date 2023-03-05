@@ -95,12 +95,7 @@ const handleClose = () => {
     setOpen(false)
 }
 
-useEffect(() => {
-    document.addEventListener('click', handleClose);
-    return () => {
-        document.removeEventListener('click', handleClose);
-    };
-}, []);
+
 
 
 
@@ -112,7 +107,10 @@ useEffect(() => {
 return (
     <>
     {/* user fetched query wrapper will likely be removed. doesnt quite do what i want this page to do */}
-    <Modal open={userFetched}><div className='text-white font-poppins'>Login Successful</div></Modal>
+    <Modal open={userFetched}>
+        <div className='text-white font-poppins'>Login Successful</div>
+        <button onClick={() => setOpen(false)}>X</button>
+        </Modal>
     <section className='min-h-screen flex items-center justify-center relative'>
 
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
