@@ -107,7 +107,7 @@ const handleClose = () => {
 return (
     <>
     {/* user fetched query wrapper will likely be removed. doesnt quite do what i want this page to do */}
-    {userFetched ? (<Modal><div className='text-white font-poppins'>Login Successful</div></Modal>) : (
+    {userFetched ? (<div className='text-white font-poppins'>Login Successful</div>) : (
     <section className='min-h-screen flex items-center justify-center relative'>
 
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
