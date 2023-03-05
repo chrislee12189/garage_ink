@@ -1,10 +1,187 @@
 
-### Server Start Command:
+# Server Start Command:
 
 npm run dev
 
+# Dependencies:
+npm list will provide a list of dependencies used by this application. Ill explain the function of the more important dependencies below.
 
-#### T3A2-A Full Stack App – Part A
+garageink@0.0.0 /home/chris/garageink/garageink </br>
+├── @emotion/react@11.10.6</br>
+├── @emotion/styled@11.10.6</br>
+├── @mui/material@5.11.11</br>
+├── @types/react-dom@18.0.10</br>
+├── @types/react@18.0.28</br>
+├── @vitejs/plugin-react@3.1.0</br>
+├── autoprefixer@10.4.13</br>
+├── axios@1.3.3</br>
+├── postcss@8.4.21</br>
+├── react-dom@18.2.0</br>
+├── react-icons@4.7.1</br>
+├── react-router-dom@6.8.1</br>
+├── react-social-media-embed@2.3.4</br>
+├── react@18.2.0</br>
+├── tailwindcss@3.2.6</br>
+└── vite@4.1.1</br>
+
+
+## vite@4.1.1
+Vite was chosen for a few reasons:
+- speed (100x times faster than webpack (used by create-react-app))
+
+- less boilerplate code on app creation (seriously, a LOT less boilerplate code. Can basically begin building immediately after app creation)
+
+- pre-bundling with ESbuild makes it 10-100 times faster than other Js bundlers 
+
+- faster dev server start-up times
+
+- faster package installation times (used with npm, may be anecdotal but my packages were installed so quickly it was almost unbelievable, this continued throughout the entire project development)
+
+- variety of framework options on initial build that are supported out of the box. (makes it  a good choice to begin familiarizing with for future projects)
+
+- https://hackernoon.com/why-vite-is-better-than-create-react-app-cra#heading-how-does-vite-work
+
+- https://vitejs.dev/guide/why.html 
+
+
+## tailwindcss@3.2.6
+Tailwind was chosen after i randomly stumbled across a youtube video where it was being used. It looked interesting so i tried to figure out if it would actually be useful.
+Tailwind is by far my favourite framework of the year. Everything that i disliked about css was solved with tailwind.
+
+- Tailwind is a utility-first CSS framework allows classes and other properties to be applied inline, directly to the element you want to style
+
+- Tailwind is described as an API for design.
+
+- "Utility classes help you work within the constraints of a system instead of littering your stylesheets with arbitrary values. They make it easy to be consistent with color choices, spacing, typography, shadows, and everything else that makes up a well-engineered design system." -https://tailwindcss.com/
+
+- One of the main features that interested me in the Tailwind framework was its ability to remove any and all redundant/unused CSS on build. Tailwind purges these properties automatically which in turn dramatically reduces the size of your project and cleans your code.
+
+- Tailwind classes allow developers to write less code. The code that is written is direct and clear. Classes can also be hovered over and tailwind will automatically display the css equivalent of what is being applied. For example:
+- css </br>
+    'grid-template-columns: repeat(1, minmax(0, 1fr));'  is 
+- tailwind </br>
+    'grid-cols-1'
+
+- You will find a file called styles.js in the src folder. This folder was used to define multiple stlyes that were used all throughout the project to help maintain consistent styles and sizes. Doing this also allows for cleaner code that is easier to read and edit. Tailwind can get a bit messy if there is a large number of elements being styled inline all at once.
+
+
+
+- Another reason i decided to commit to tailwind was that the documentation for it is by far the best documentation i have ever seen. Not just for frameworks either. It is clear, easy to navigate, not cluttered with difficult language or elaborate explanations
+
+## Tailwind Components 
+Tailwind provides a number of plug and play components that users can insert into their projects and then style themselves.</br>
+My approach for this project was to ensure i wasnt trying to re-invent the wheel/overcomplicate stuff for no reason.</br>
+Lets say you need to create a card container. You could begin creating a chunk of divs with arbitrary sizes and fiddle around with it for an hour or so until you like it. OR you could go to tailwinds website and grab the card container and use that as a component template that can be reused throughout the entire project. Granted, the templates are rather simple and often need some extra styling to adjust them into your project, but overall, it is a terrific time saving decision.
+
+## react-social-media-embed@2.3.4
+This was an npm package used to allow me to embed Instagram URLs into my components. Without it, you have to use the embed link provided by instagram. That link is massive and clunky and you cant really edit the styles too much. react-social-media-embed allows you to copy the url of the reel or image you want to embed. It also allows for some basic styling which is nice too.
+
+##  axios@1.3.3
+Axios is a promise based http client that was implemented on all of my HTTP methods. It can be used in the browser and with node.js. </br>
+
+Benefits of using Axios as explained on their website: https://axios-http.com/docs/intro
+
+- Make XMLHttpRequests from the browser
+
+- Make http requests from node.js
+
+- Supports the Promise API
+
+- Intercept request and response
+
+- Transform request and response data
+
+- Cancel requests
+
+- Timeouts
+
+- Query parameters serialization with support for nested entries
+
+- Automatic request body serialization to:</br>
+
+ JSON (application/json)</br>
+
+ Multipart / FormData (multipart/form-data)</br>
+
+ URL encoded form (application/x-www-form-urlencoded)</br>
+
+- Posting HTML forms as JSON
+
+- Automatic JSON data handling in response
+
+- Progress capturing for browsers and node.js with extra info (speed rate, remaining time)
+- Setting bandwidth limits for node.js
+- Compatible with spec-compliant FormData and Blob (including node.js)
+- Client side support for protecting against XSRF
+
+
+
+## @mui/material@5.11.11</br>
+MUI is a huge library of pre-built components that are desgined for plug and play implementation. This was used to create the Register modal on the Login page. 
+
+## autoprefixer@10.4.13
+autoprefixed is used for the Front-end side of development and pertains to the automatic prefixing for different browsers. This means that the Front End developer does not need to apply specific prefixes for different browsers. This saves a huge amount of time and stress and honestly goes un-noticed in a way too. 
+
+# Cloudinary:
+### The cloudinary Image Upload works like this:
+![cloudinary_screenshot_1](src/assets/READMeImages/cloudinary1.jpg)
+### User selects upload file field from the community page and they will be prompted to upload an image
+![cloudinary_screenshot_2](src/assets/READMeImages/cloudinary2.jpg)
+### Once they select an image, the image will be displayed as a preview before the user clicks "Add Your Post"
+![cloudinary_screenshot_3](src/assets/READMeImages/cloudinary3.jpg)
+### Once they fill out the fields and click "Add your post", a POST request is sent to cloudinary with a base 64 encoded string representing the image as the payload. 
+![cloudinary_screenshot_4](src/assets/READMeImages/cloudinary4.jpg)
+### Screenshot of preview field in devtools (network -> Fetch/XHR -> preview)
+![cloudinary_screenshot_5](src/assets/READMeImages/cloudinary5.jpg)
+### The image is now successfully stored in cloudinary and backend can grab the url representing that image and store it. From there, the next point would be for me to point at that url in the db from front end and have it render the image on front end. We ran out of time to add the backend functionality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# T3A2-A Full Stack App – Part A
 Team: Jye CM, Chris L
 
 ## **Requirement 1**: 

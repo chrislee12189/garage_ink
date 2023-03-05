@@ -25,7 +25,7 @@ useEffect(() => {
                         return prevIndex + 1;}
             });
         }, 
-        50000)
+        5000)
     return () => clearInterval(interval)
     },
     []);
@@ -38,24 +38,37 @@ useEffect(() => {
 return (
     <>
     <div className='relative'>
-    <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
+        {/* set up gradients and headings */}
+
+        <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
         <h1 className={`${styles.heading2} ${styles.paddingX} flex justify-center mt-[50px]`}>Welcome to the Garage Ink Community</h1>
         <p className={`${styles.paragraph} ${styles.paddingX} flex justify-center mt-[25px]`}>Here, users can post their tattoos and leave a review!</p>
+
+
+    {/* this section sets up the tattoo of the day */}
 
         <div className={`${styles.flexCenter} pt-36 w-full`}>
         <div className={`${styles.flexCenter} relative`}>
             <img className={`md:w-[850px] w-[500px] ${styles.paddingX}`} src={imgGallery[tattooOfDayIndex]}/>
         </div>
             <h2 className={` ${styles.paddingX} font-poppins text-white md:text-5xl text-2xl absolute bg-gradient-to-r from-cyan-500 to-blue-500 md:translate-y-[300px] translate-y-[275px] md:-translate-x-[370px] -translate-x-[0px]  rounded-xl p-3`}>Tattoo of the week!</h2>
-            
-        </div>
-        <p className={`${styles.paragraph} ${styles.paddingX} flex justify-center md:mt-[25px] mt-[170px]`}>The tattoo of the week is chosen from a very large collection of ours. It may be selected for its fond memories or for its sheer display of artistic talent.</p>
-        <div className='text-center text-white font-poppins text-[50px] pb-10 relative mt-60'>Customer Uploads</div>
-            <div className='flex items-center justify-center relative'><UserImageCard /></div>
         </div>
 
+
+    {/* this is the banner of text underneath the tatoo of the day picture */}
+
+        <p className={`${styles.paragraph} ${styles.paddingX} flex justify-center md:mt-[25px] mt-[170px]`}>The tattoo of the week is chosen from a very large collection of ours. It may be selected for its fond memories or for its sheer display of artistic talent.</p>
+        <div className='text-center text-white font-poppins text-[50px] pb-10 relative mt-60'>Customer Uploads</div>
+
+            {/* render UserImageCard component here, this component renders the hardcoded user card examples as well as the form fields */}
+            {/* user image card component also sends user uploaded img to cloudinary, just need backend to store url for front end to display */}
+            <div className='flex items-center justify-center relative'><UserImageCard /></div>
+    </div>
+
+
+    {/* Fare well banner */}
 
 
     <div className='bg-slate-900 drop-shadow-2xl flex items-center justify-center m-5 rounded-xl p-5 mt-[500px] md:text-center'>

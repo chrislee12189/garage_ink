@@ -6,6 +6,9 @@ import Location  from './Location';
 import styles from '../styles';
 
 
+//this component is repsonsible for implementing multiple components together to create the homepage that users see
+//in app.js it is routed as '/'
+
 function HomePage () {
         return (
         <>

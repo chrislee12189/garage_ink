@@ -1,121 +1,65 @@
-import React, { useState } from "react";
-import { InstagramEmbed } from "react-social-media-embed";
-import styles from "../styles";
-import Footer from './Footer';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { initialReviews } from "../constants";
+import styles from "../styles";
+import { InstagramEmbed } from "react-social-media-embed";
+import Footer from './Footer'
+
+
+function Reviews() {
+    const [reviews, setReviews] = useState([]);
+    const [error, setError] = useState("");
+    const [newReview, setNewReview] = useState({
+    description: "",
+    tips: "",
+    rating: "",
+});
 
 
 
 
-const Review = () => {
-  //reviews = all reviews
-  //review = 1 review
-const [reviews, setReviews] = useState(initialReviews)
+    // GET METHOD
 
-const [review, setReview] = useState("")
-
-  //initially, we dont want to show edit box so useState value is set to false
-const [showEditBox, setShowEditBox] = useState(false)
-
-  //this state is used to provide id to save edit button. save edit button is outside of the map function (which renders reviews to front end) so it will get id from here.
-const [editReviewId, setEditReviewId] = useState(null)
-
-const [editReviewDesc, setEditReviewDesc] = useState("")
+    useEffect(() => {
+        async function fetchReviews() {
+        const response = await axios.get("/community/reviews");
+        setReviews(response.data);
+    }   
+    fetchReviews();
+    }, []);
 
 
-const [errorMessage, setErrorMessage] = useState(null)
-
-  //set up function to target value provided in the add review text area
-const handleOnChange = (e) => {
-    setReview(e.target.value)
-}
-
-
-
-
-
-const addReview = (e) => {
-    e.preventDefault()
-    //add review inside the reviews
-    //callback function to give us access to previous reviews so we can calculate new id for new review
-    if(!review) {
-        setErrorMessage("Review must contain a message.")
-    } else {
-    setErrorMessage(null)
-    axios.post('/community/reviews', review)
-    .then((res) => res.data,(error) => {
-        setErrorMessage("There was an adding your review: " + error.response.data.error)
-    })
-    .then((json) => console.log(json))
-    }}
+        // DELETE METHOD
+    async function deleteReview(id) {
+        try {
+            await axios.delete(`/community/reviews/${id}`);
+            setReviews(reviews.filter((review) => review._id !== id));
+            } catch (error) {
+            console.error(error);
+            }
+        }
 
 
+        // POST METHOD
 
-
-
-// The delete method is functional but i am not a fan of its purpose. later down the track it will likely be revised to work differently
-
-    const deleteReview = (id) => {
-        axios.delete(`/community/reviews/${id}`)
-        .then(res => {
-        const newReviews = reviews.filter((review) => review.id !== id)
-        setReviews(newReviews)
-        })
-        //delete the review from review list that has 'x' ID
-        //filter will return array according to conditional, here we say, return all items in review array so long as they dont match the selected ID. new array will not contain 'x' id, so, it was deleted
-
+async function addReview(e) {
+    e.preventDefault();
+    if (!newReview.description || !newReview.rating) {
+        setError("All fields are required");
+        return;
     }
-
-
-
-
-
-
-
-  //here we are applying state to open an edit text area when edit button is clicked
-    const editReview = (id) => {
-    //show edit box
-    setShowEditBox(true)
-    setEditReviewId(id)
-    setEditReviewDesc(reviews.find((review) => review.id === id).description)}
-  //here we are taking the value added by user into text area after clicking edit
-    const handleEditReview = (e) => {
-    setEditReviewDesc(e.target.value)
-}
-
-
-const handleEdit = () => {
-    // Check whether user provides updated description. if not, return error message
-    if (!editReviewDesc) { 
-    const newReviews = [...reviews];
-    const reviewIndexToEdit = reviews.findIndex((review) => review.id === editReviewId);
-    newReviews[reviewIndexToEdit].description = editReviewDesc;
-    setErrorMessage("Failed to provide updated description.")}
-    //if user provides updated description, sent put request to backend to have it updated, include review id in header, description value in body
-    else {
-        setErrorMessage(null)
-    axios.put(`/community/reviews/${editReviewId}`, 
-    {
-        description: editReviewDesc,
-    }).then(() => {
-        setReviews(newReviews);
-        setEditReviewDesc("");
-        setShowEditBox(false);
-        console.log(res.data)
-    }).catch((error) => {
-        console.log(error);
+    try {
+    const response = await axios.post("/community/reviews", newReview);
+    setReviews([...reviews, response.data]);
+    setNewReview({
+        description: "",
+        rating: "",
+        tips:""
     });
-    }
-};
-
-
-
-
-
-
-
-
+    setError("");
+} catch (error) {
+    console.error(error);
+}
+}
 
 
 
@@ -124,9 +68,9 @@ const handleEdit = () => {
 
 
 return (
- //sets up headings and tattoo of the day picture    
     <>
-    <section className="relative">
+    {/* containers for top of page: headings, text and reviews list is all sorted out in this section */}
+        <section className="relative">
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute -z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />
         <div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" />
@@ -137,49 +81,48 @@ We welcome you to experience the amazing energy that is art in all its forms cli
 We are a family and have great appreciation for each other and our wonderful clients. <br />
 </p>
 
-
-
-
-
-
-
-
-
-
-<div className={`${styles.flexCenter} pt-36 w-full`}>
-
-    <div className="flex items-center justify-center p-10">
-      {/* sets up reviews section */}
-        <div className="relative border-[6px] border-sky-600 p-10 bg-[#214d76]">
-        <div className={`${styles.paragraph} font-bold underline`}>How was your experience?</div>
+    {/*  begin setting up review functionality/style */}
+    <div className="relative border-[6px] border-sky-600 md:w-1/2 w-full rounded-3xl  m-auto p-10 bg-[#1f4d77]">
+        <h2 className={`${styles.heading2} font-bold underline pb-6`}>Reviews</h2>
+        <div className={`${styles.paragraph} font-bold underline pb-10`}>How was your experience?</div>
+        <div className=" flex flex-col items-center bg-opacity-50 gap-5 ">
         {reviews.map((review) => {
             return (
-                <div className=" md:w-[550px] p-5" key={review.id}>
-                    <div className="py-6 bg-gray-300 w-auto rounded-xl px-5 mb-3">{review.description}</div>
-                    <button className={`${styles.buttonHover} py-2 px-2  w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3  `} onClick={() => editReview(review.id)}>Edit</button>
-                    <button className={`${styles.buttonHover} py-2 px-2 hover:bg-red-500 w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3`} onClick={() => deleteReview(review.id)}>Delete</button>
+                <div className="w-full p-5 bg-slate-500 rounded-3xl"  key={review.id}>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Review Description:</p>{review.description}</div>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Rating (1 - 10):</p>{review.rating}</div>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Tips (Feedback):</p>{review.tips}</div>
+                    <button className={`${styles.buttonHover} py-2 px-2 hover:bg-red-500 w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3`} onClick={() => deleteReview(review._id)}>Delete</button>
                 </div>)
         })}
-        {showEditBox && (
-            <div className=' md:w-[550px]'>
-                <input value={editReviewDesc} onChange={handleEditReview} className='md:w-[550px] w-full p-6 mb-4 rounded-xl outline-none border-[6px] border-orange-500 animate-[wiggle_0.4s_ease-in-out] '/>
-                    <div>
-                    <button onClick={handleEdit} className={`${styles.buttonHover} py-2 px-2  w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3 hover:bg-green-400`}>Save Edit</button>
-                    </div>
-            </div>)}
-        <form className='md:w-[550px]'>
-            <div className={`${styles.paragraph}`}>Add Review</div>
-            <input value={review} onChange={handleOnChange} className='md:w-[550px] w-full p-5 rounded-xl mb-6 bg-gray-300 ' placeholder="Enter your review here!" />
-            <div>
-                <button className={`${styles.paragraph} p-2 bg-gray-600 w-[100px] rounded-xl hover:bg-green-400`} onClick={addReview}>Add</button>
-                <div>{errorMessage}</div>
-            </div>
+        </div>
+    </div>
+    <div className={`${styles.buttonHover} text-red-500 mt-2 m-auto py-10`}>{error}</div>
+
+
+
+    {/*  form user fills out to add review */}
+    
+    <div className="bg-sky-600 relative  md:w-2/3 w-full m-auto rounded-3xl">
+        <form onSubmit={addReview} className="flex flex-col md:w-1/2 md:px-2 px-5 w-full m-auto ">
+            <label className="font-poppins mt-10 md:p-5 p-3 md:text-[32px] text-[26px] text-white mb-2 bg-slate-800 rounded-xl">New Review:</label>
+            <input name="description" value={newReview.description} onChange={(e) => setNewReview({ ...newReview, description: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter description!"/>
+            <input name="rating" value={newReview.rating} onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter rating!"/>
+            <input name="tips" value={newReview.tips} onChange={(e) => setNewReview({ ...newReview, tips: e.target.value })} className={`${styles.userFormFields} w-full`}  placeholder="Enter tips!"/>
+            <button type="submit" className="bg-green-400 text-white rounded-lg px-4 py- mt-4 mb-10 p-5 hover:bg-green-500" onClick={addReview}>Submit</button>
         </form>
         </div>
-        </div>
-        </div>
-        <h1 className={`${styles.heading2} text-center mb-[90px] mt-[90px] md:px-10 px-28`}>The Garage Ink Instagram is one of the best ways to keep up to date.</h1>
-        <p className='text-white text-center px-10 mb-[60px] leading-10 md:text-[25px] text-[16px]'>
+
+        {/* end form  */}
+
+
+
+
+
+        {/* section after reviews, used to rended instagram embed and some text */}
+        <div>
+        <h1 className={`${styles.heading2}  text-center mb-[90px] mt-[90px] px-16`}>The Garage Ink Instagram is one of the best ways to keep up to date.</h1>
+        <p className='text-white text-center px-10 mb-[60px] leading-10 md:text-[25px] text-[12px]'>
             
             We believe in creating a world class experience for both client and artist. The studio is an open and safe environment full of people who are incredibly passionate about all things art.<br />
 
@@ -196,12 +139,18 @@ With multi awards within our industry world wide. Countless local and internatio
         </div>
 
         
-    </section>        
+            
     <div className="relative md:mt-36 mt-24 md:px-36 px-6">
             <Footer />
         </div>
+        </div>
+        </section>
     </>
-)}
+);
+}
+
+export default Reviews;
 
 
-export default Review
+
+

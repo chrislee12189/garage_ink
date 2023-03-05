@@ -2,6 +2,8 @@ import React from 'react';
 import styles from '../styles';
 
 
+//component to embed google maps address to home page
+
 const Location = () => {
     return (
         <section id="location">

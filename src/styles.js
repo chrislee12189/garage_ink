@@ -17,10 +17,21 @@ const styles = {
     artistCard: "w-[150px] h-[150px] sm:w-[360px] sm:h-[350px] rounded-lg cursor-pointer",
     artistCategory: "sm:text-[26px] text-[16px] flex items-center justify-center sm:mt-8 mt-4 sm:mb-10 mb-3",
     artistContainer: "flex flex-row flex-wrap md:gap-[150px] gap-10   items-center justify-center",
+    artistNameAndYOE: "mt-3 mb-5 ss:text-12[px] hover:cursor-pointer",
 
     divider: "h-px my-10 items-center justify-center bg-gray-200 border-0 dark:bg-gray-70 w-[600px] mx-auto",
     buttonHover: "hover:scale-105",
-    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded md:w-[600px] w-[330px] bg-gray-100'
+    input: 'sm:m-4 m-6 p-2 mt-4 rounded-xl border-rounded md:w-[600px] w-[330px] bg-gray-100',
+
+    reviewFields:"py-3 rounded-xl bg-sky-300  px-5 mb-3 break-words",
+    reviewFieldText:"text-black  text-[20px] font-bold italic",
+
+    userFormFields: "bg-slate-200 border-black  p-5 mt-8 rounded-xl border",
+
+    storeImageStyle: 'h-full w-full object-cover object-center',
+    storeDivStyle: 'w-full overflow-hidden rounded-lg bg-gray-200',
+    storeItemTitle: "mt-4 text-sm text-white",
+    storeItemPrice: "mt-1 text-lg  font-medium text-white"
 };
 
 export const layout = {

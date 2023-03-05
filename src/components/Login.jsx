@@ -1,26 +1,32 @@
 import React from 'react';
 import { useState } from 'react';
 import { critTattoos, formIcons } from '../assets';
+import Register from './Register';
+import { Modal } from '@mui/material';
 import styles from '../styles';
 import axios from 'axios';
-
-// import axios from 'axios';
+import { Box } from '@mui/system';
 
 const Login = () => {
+    //STATE
 const [showPassword, setShowPassword] = useState(false);
 const togglePassword = () => {setShowPassword(!showPassword)};
 const [user, setUser] = useState({ email: "", password: ""})
+const [userFetched, setUserFetched] = useState(false)
+const [open, setOpen] = useState(false)
 const [errorMessage, setErrorMessage] = useState({
     username: null,
     password: null,
     apiError: null,
 })
 
-//TODO: this state will be used when a user successfully logs in. it will need to change. login should be the first thing user does, no log in = no using site. after login, site access should be granted and login tab should go away.
-const [userFetched, setUserFetched] = useState(false)
 
 
-//TODO: handleSubmit function sends user object to backend. this happens when the user presses 'login' button. will work on how the register button will work later.
+    //FUNCTIONS
+
+
+    //handle submit function is used to POST the form details to the backend
+
 const handleSubmit = (event) => {
     event.preventDefault()
     let errorFound = false
@@ -67,6 +73,7 @@ const handleSubmit = (event) => {
 }
 
 
+    //handle changes tracks user input on form fields so that it can be updated with state
 
 const handleChanges = (event) => {
     setUser((prevUser) => {
@@ -79,8 +86,24 @@ const handleChanges = (event) => {
 
 
 
+    //these functions are used to control the register modal being opened or closed on click of the register button
+    
+const handleOpen = () => {
+    setOpen(true)
+}
+const handleClose = () => {
+    setOpen(false)
+}
 
 
+
+
+
+
+
+
+
+    //COMPONENT
 return (
     <>
     {/* user fetched query wrapper will likely be removed. doesnt quite do what i want this page to do */}
@@ -133,7 +156,14 @@ return (
                 {/* create register button and text for account creation */}
                 <div className='text-sm flex justify-between'>
                     <p className='py-2 text-white font-poppins'>Create an account</p>
-                    <button className='bg-[#84bffe] rounded-xl py-1 px-8 text-white font-poppins hover:scale-110 duration-300'>Register</button>
+                    <button className='bg-[#84bffe] rounded-xl py-1 px-8 text-white font-poppins hover:scale-110 duration-300' onClick={handleOpen}>Register</button>
+
+        {/* register modal pops up when user presses register, register modal is a component that takes info and sends to backend  */}
+                    <Modal open = {open} onClose = {handleClose}>
+                        <Box>
+                            <Register />
+                        </Box>
+                    </Modal>
                 </div>
                 </div>
             </div>
