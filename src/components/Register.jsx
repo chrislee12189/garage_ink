@@ -33,7 +33,7 @@ return (
     <input className={styles.input} type="text" placeholder='email' value={user.email} onChange={(e) => setUser({ ...user, email: e.target.value })}></input>
     <input className={styles.input} type="text" placeholder='password' value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
     <input className={styles.input} type="text" placeholder='name' value={user.name} onChange={(e) => setUser({ ...user, name: e.target.value })}></input>
-    <input className={styles.input} type="date" placeholder='dob' value={user.dob} onChange={(e) => setUser({ ...user, dob: e.target.value })}></input>
+    <input className={styles.input} type="date" placeholder='date of birth' value={user.dob} onChange={(e) => setUser({ ...user, dob: e.target.value })}></input>
     <button className='bg-blue-500 gap-2 rounded-xl p-3 m-3' onClick={handleRegister}>Submit</button>
 </form>
 

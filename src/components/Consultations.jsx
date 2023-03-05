@@ -111,7 +111,7 @@ return (
             <input className={`${styles.consultationsInput}`} type='text' name='email' placeholder='Email' value={newBooking.email} onChange={handleChange} />
             <label className={`${styles.consultationsLabel}`}>Enter your email address. Ensure spelling is correct.</label>
 
-            <input className={`${styles.consultationsInput}`} type='date' name='dob' placeholder='Date of Birth' value={newBooking.dob} onChange={handleChange}/>
+            <input className={`${styles.consultationsInput} p-6`} type='date' name='dob' placeholder='Date of Birth' value={newBooking.dob} onChange={handleChange}/>
             <label className={`${styles.consultationsLabel}`}>Enter your date of birth.</label>
 
 
