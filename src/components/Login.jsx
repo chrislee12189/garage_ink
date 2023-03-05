@@ -95,7 +95,12 @@ const handleClose = () => {
     setOpen(false)
 }
 
-
+useEffect(() => {
+    document.addEventListener('click', handleClose);
+    return () => {
+        document.removeEventListener('click', handleClose);
+    };
+}, []);
 
 
 
