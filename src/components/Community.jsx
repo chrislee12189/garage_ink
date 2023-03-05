@@ -25,7 +25,7 @@ useEffect(() => {
                         return prevIndex + 1;}
             });
         }, 
-        50000)
+        5000)
     return () => clearInterval(interval)
     },
     []);
@@ -63,6 +63,7 @@ return (
         <div className='text-center text-white font-poppins text-[50px] pb-10 relative mt-60'>Customer Uploads</div>
 
             {/* render UserImageCard component here, this component renders the hardcoded user card examples as well as the form fields */}
+            {/* user image card component also sends user uploaded img to cloudinary, just need backend to store url for front end to display */}
             <div className='flex items-center justify-center relative'><UserImageCard /></div>
     </div>
 

@@ -67,10 +67,6 @@ async function addReview(e) {
 
 
 
-
-
-
-
 return (
     <>
     {/* containers for top of page: headings, text and reviews list is all sorted out in this section */}
@@ -93,15 +89,15 @@ We are a family and have great appreciation for each other and our wonderful cli
         {reviews.map((review) => {
             return (
                 <div className="w-full p-5 bg-slate-500 rounded-3xl"  key={review.id}>
-                    <div className="py-3 rounded-xl bg-sky-300  px-5 mb-3 break-words "><p className="text-black  text-[20px] font-bold italic">Review Description:</p>{review.description}</div>
-                    <div className="py-3 rounded-xl bg-sky-300  px-5 mb-3 break-words  "><p className="text-black text-[20px] font-bold italic">Rating (1 - 10):</p>{review.rating}</div>
-                    <div className="py-3 rounded-xl bg-sky-300  px-5 mb-3 break-words  "><p className="text-black text-[20px] font-bold italic">Tips (Feedback):</p>{review.tips}</div>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Review Description:</p>{review.description}</div>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Rating (1 - 10):</p>{review.rating}</div>
+                    <div className={`${styles.reviewFields}`}><p className={styles.reviewFieldText}>Tips (Feedback):</p>{review.tips}</div>
                     <button className={`${styles.buttonHover} py-2 px-2 hover:bg-red-500 w-[150px] bg-dimWhite  rounded-lg mx-2 mb-3`} onClick={() => deleteReview(review._id)}>Delete</button>
                 </div>)
         })}
         </div>
     </div>
-    <div className="text-red-500 mt-2 m-auto py-10">{error}</div>
+    <div className={`${styles.buttonHover} text-red-500 mt-2 m-auto py-10`}>{error}</div>
 
 
 
@@ -110,9 +106,9 @@ We are a family and have great appreciation for each other and our wonderful cli
     <div className="bg-sky-600 relative  md:w-2/3 w-full m-auto rounded-3xl">
         <form onSubmit={addReview} className="flex flex-col md:w-1/2 md:px-2 px-5 w-full m-auto ">
             <label className="font-poppins mt-10 md:p-5 p-3 md:text-[32px] text-[26px] text-white mb-2 bg-slate-800 rounded-xl">New Review:</label>
-            <input name="description" value={newReview.description} onChange={(e) => setNewReview({ ...newReview, description: e.target.value })} className="bg-slate-200 border-black p-5 mt-8  rounded-xl border " placeholder="Enter description!"/>
-            <input name="rating" value={newReview.rating} onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })} className="bg-slate-200 border-black p-5 mt-8 rounded-xl border " placeholder="Enter rating!"/>
-            <input name="tips" value={newReview.tips} onChange={(e) => setNewReview({ ...newReview, tips: e.target.value })} className="bg-slate-200 border-black  p-5 mt-8 rounded-xl border w-full" placeholder="Enter tips!"/>
+            <input name="description" value={newReview.description} onChange={(e) => setNewReview({ ...newReview, description: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter description!"/>
+            <input name="rating" value={newReview.rating} onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter rating!"/>
+            <input name="tips" value={newReview.tips} onChange={(e) => setNewReview({ ...newReview, tips: e.target.value })} className={`${styles.userFormFields} w-full`}  placeholder="Enter tips!"/>
             <button type="submit" className="bg-green-400 text-white rounded-lg px-4 py- mt-4 mb-10 p-5 hover:bg-green-500" onClick={addReview}>Submit</button>
         </form>
         </div>

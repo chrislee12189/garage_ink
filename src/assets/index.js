@@ -919,3 +919,61 @@ export const pricingPics = [
     teneile_tattoo3,
     pricing_bg_img
 ]
+
+export const userPostCardArray = [
+    {
+        id:1,
+        img: emTattoos[0],
+        heading:'Pet Portrait',
+        description: 'I was tattooed by Emily. She tattooed my cat on my leg and i absolutely love the tattoo! It looks exaclty like my fur baby!'
+    },
+    {
+        id:2,
+        img: emTattoos[1],
+        heading: 'Pet Portrait',
+        description: 'My pooch has always had unique eyes. This tattoo helped emphasize those eyes.'
+    },
+    {
+        id:3,
+        img: emTattoos[5],
+        heading: "Shark Week",
+        description: 'I like sharks.'
+    }, 
+    {
+        id:4,
+        img: giorgiaTattoos[4],
+        heading: "Cover Up",
+        description: 'I had some really old tattoos i needed to cover up. First session down on this awesome tiger!'
+    },
+    {
+        id:5,
+        img: giorgiaTattoos[3],
+        heading: "Spiders!!!!",
+        description: 'I have adored arachnids for years now. They have a very creepy but interesting appeal!'
+    },
+    {
+        id:6,
+        img: karleeTattoos[2],
+        heading: "Bear Sleeve :)",
+        description: 'Karlee did a phenomenal job on my tattoo! Excited to get more! '
+    },
+    {
+        id:7,
+        img: teneileTattoos[2],
+        heading: "Absolutely perfect!",
+        description: 'Teneile is unmatched at creating soft, beautiful pieces of art.'
+    },
+    {
+        id:8,
+        img: teneileTattoos[6],
+        heading: "The best studio in QLD",
+        description: 'The ribs hurt a lot but it was worth every minute of the pain. This piece is timeless.'
+    },
+    {
+        id:9,
+        img: juannitaTattoos[0],
+        heading: "Juannita is a genuine master of the arts!",
+        description: 'This is by far the greatest tattoo i have. Juannita absolutely blew my expectations away!'
+    },
+
+]

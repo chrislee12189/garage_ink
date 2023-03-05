@@ -36,7 +36,17 @@ const artistSelector = (artistList) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('/bookings', newBooking)      
+    if(!newBooking.first_name){
+        setErrorMessage("You must provide a first name")
+    } else if(newBooking.dob < 18) {
+        setErrorMessage("You must be 18 or older to register a consultation.")
+    } else if(newBooking.phone_number) {
+        setErrorMessage("You must provide a email address")
+    } else {
+            axios.post('/bookings', newBooking)
+            .then((res) => res.data,(error) => {
+                setErrorMessage("There was an error with your booking: " + error.response.data.error)
+            })
     .then((json) => (console.log(json))); 
     setNewBooking({
                 first_name:"",
@@ -47,7 +57,7 @@ const handleSubmit = (event) => {
                 description:  "",
                 deposit:  "",
                 artist_name: selectArtist
-            })}
+            })}}
 
 
 
