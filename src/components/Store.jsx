@@ -93,9 +93,9 @@ return (
 {/* Product 6 */}
         <a>
         <div className={`${styles.storeDivStyle}`}>
-            <img src={storeItems[4]} alt="Black Tee" className={`${styles.storeImageStyle}`} />
+            <img src={storeItems[4]} alt="Timmy C Black Tee" className={`${styles.storeImageStyle}`} />
         </div>
-        <h3 className={`${styles.storeItemTitle}`}>Garage Ink Black Tee</h3>
+        <h3 className={`${styles.storeItemTitle}`}>Timmy C Black Tee</h3>
         <p className={`${styles.storeItemPrice}`}>$35</p>
         </a>
 
@@ -106,9 +106,9 @@ return (
 {/* Product 7 */}
         <a>
         <div className={`${styles.storeDivStyle}`}>
-            <img src={storeItems[5]} alt="Black Tee" className={`${styles.storeImageStyle}`} />
+            <img src={storeItems[5]} alt="Timmy C Black Shorts" className={`${styles.storeImageStyle}`} />
         </div>
-        <h3 className={`${styles.storeItemTitle}`}>Garage Ink Black Tee</h3>
+        <h3 className={`${styles.storeItemTitle}`}>Timmy C Black Shorts</h3>
         <p className={`${styles.storeItemPrice}`}>$35</p>
         </a>   
     </div>
