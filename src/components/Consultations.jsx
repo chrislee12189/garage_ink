@@ -12,7 +12,7 @@ const Consultations = () => {
 const [menuOpen, setOpen] = useState(false);
 const [selectArtist, setSelectArtist] = useState('');
 const [errorMessage, setErrorMessage] = useState(null)
-const [successMessage, setSuccessMessage] = ('')
+const [successMessage, setSuccessMessage] = useState("")
 const [newBooking, setNewBooking] = useState({
     first_name:"",
     last_name: "",
@@ -146,7 +146,8 @@ return (
 
         {/* sets up space for error message to display */}
 
-        <div>{errorMessage}{successMessage}</div>
+        {errorMessage && <div className='bg-red-500 m-6 rounded-xl p-5'>{errorMessage}</div>}
+            {successMessage && <div className="bg-green-500 m-6 rounded-xl p-5">{successMessage}</div>}
             </form>
 
             {/* sets up register button bottom left */}

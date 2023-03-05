@@ -8,7 +8,7 @@ import Footer from './Footer'
 function Reviews() {
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState("");
-    const [successMessage, setSuccessMessage] = (null)
+    const [successMessage, setSuccessMessage] = useState("")
     const [newReview, setNewReview] = useState({
     description: "",
     tips: "",
@@ -41,30 +41,27 @@ function Reviews() {
 
 
         // POST METHOD
-
-async function addReview(e) {
-    e.preventDefault();
-    if (!newReview.description || !newReview.rating) {
-        setError("All fields are required");
-        return;
-    }
-    try {
-    const response = await axios.post("/community/reviews", newReview);
-    setReviews([...reviews, response.data]);
-    setSuccessMessage("Your review has been added, refresh the page to see it!")
-    setNewReview({
-        description: "",
-        rating: "",
-        tips:""
-    });
-    setError("");
-} catch (error) {
-        setErrorMessage("There was an error with your review: " + error.response.data.error)
-}
-}
-
-
-
+        async function addReview(e) {
+            e.preventDefault();
+            if (!newReview.description || !newReview.rating) {
+                setError("All fields are required");
+                return;
+            }
+            try {
+            const response = await axios.post("/community/reviews", newReview);
+            setReviews([...reviews, response.data]);
+            setSuccessMessage("Your review has been added, refresh the page to see it!")
+            setNewReview({
+                description: "",
+                rating: "",
+                tips:""
+            });
+            setError("");
+            } catch (error) {
+                console.log(error)
+                setError("There was an error with your review: " + error.response.data.error)        
+            }
+        }
 
 
 
@@ -99,7 +96,7 @@ We are a family and have great appreciation for each other and our wonderful cli
         })}
         </div>
     </div>
-    <div className={`${styles.buttonHover} text-red-500 mt-2 m-auto py-10`}>{error}{successMessage}</div>
+
 
 
 
@@ -111,11 +108,26 @@ We are a family and have great appreciation for each other and our wonderful cli
             <input name="description" value={newReview.description} onChange={(e) => setNewReview({ ...newReview, description: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter description!"/>
             <input name="rating" value={newReview.rating} onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter rating!"/>
             <input name="tips" value={newReview.tips} onChange={(e) => setNewReview({ ...newReview, tips: e.target.value })} className={`${styles.userFormFields} w-full`}  placeholder="Enter tips!"/>
+            {error && <div className='bg-red-500 m-6 rounded-xl p-5'>{error}</div>}
+            {successMessage && <div className="bg-green-500 m-6 rounded-xl p-5">{successMessage}</div>}
             <button type="submit" className="bg-green-400 text-white rounded-lg px-4 py- mt-4 mb-10 p-5 hover:bg-green-500" onClick={addReview}>Submit</button>
         </form>
         </div>
 
         {/* end form  */}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
