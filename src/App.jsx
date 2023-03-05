@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles';
 import {  Artists, Community, Consultations, Gallery, Navbar, HomePage, Store, Login, Review, TattooStyles, Prices, Register } from './components';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Outlet} from 'react-router-dom';
+import { createHashRouter, createRoutesFromElements, Route, RouterProvider, Outlet} from 'react-router-dom';
 
 //<> </> fragmenting
 
@@ -13,7 +13,7 @@ const App = () => (
 
 
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainPage />}>
       <Route path="/" element={<HomePage />} />
