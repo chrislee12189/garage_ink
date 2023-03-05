@@ -8,6 +8,7 @@ import Footer from './Footer'
 function Reviews() {
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState("");
+    const [successMessage, setSuccessMessage] = (null)
     const [newReview, setNewReview] = useState({
     description: "",
     tips: "",
@@ -50,6 +51,7 @@ async function addReview(e) {
     try {
     const response = await axios.post("/community/reviews", newReview);
     setReviews([...reviews, response.data]);
+    setSuccessMessage("Your review has been added, refresh the page to see it!")
     setNewReview({
         description: "",
         rating: "",
@@ -57,7 +59,7 @@ async function addReview(e) {
     });
     setError("");
 } catch (error) {
-    console.error(error);
+        setErrorMessage("There was an error with your review: " + error.response.data.error)
 }
 }
 
@@ -97,7 +99,7 @@ We are a family and have great appreciation for each other and our wonderful cli
         })}
         </div>
     </div>
-    <div className={`${styles.buttonHover} text-red-500 mt-2 m-auto py-10`}>{error}</div>
+    <div className={`${styles.buttonHover} text-red-500 mt-2 m-auto py-10`}>{error}{successMessage}</div>
 
 
 

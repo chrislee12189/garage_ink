@@ -31,7 +31,10 @@ const styles = {
     storeImageStyle: 'h-full w-full object-cover object-center',
     storeDivStyle: 'w-full overflow-hidden rounded-lg bg-gray-200',
     storeItemTitle: "mt-4 text-sm text-white",
-    storeItemPrice: "mt-1 text-lg  font-medium text-white"
+    storeItemPrice: "mt-1 text-lg  font-medium text-white",
+
+    consultationsLabel:"font-poppins text-[14px] text-dimWhite bg-grey-500",
+    consultationsInput: "p-2 mt-8 rounded-xl border w-full"
 };
 
 export const layout = {
