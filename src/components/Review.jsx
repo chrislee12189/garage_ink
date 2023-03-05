@@ -81,7 +81,7 @@ We are a family and have great appreciation for each other and our wonderful cli
 </p>
 
     {/*  begin setting up review functionality/style */}
-    <div className="relative border-[6px] border-sky-600 md:w-1/2 w-full rounded-3xl  m-auto p-10 bg-[#1f4d77]">
+    <div className="relative border-[6px] border-sky-600 md:w-1/2 w-full rounded-3xl  m-auto mt-10 p-10 bg-[#1f4d77]">
         <h2 className={`${styles.heading2} font-bold underline pb-6`}>Reviews</h2>
         <div className={`${styles.paragraph} font-bold underline pb-10`}>How was your experience?</div>
         <div className=" flex flex-col items-center bg-opacity-50 gap-5 ">
@@ -102,7 +102,7 @@ We are a family and have great appreciation for each other and our wonderful cli
 
     {/*  form user fills out to add review */}
     
-    <div className="bg-sky-600 relative  md:w-2/3 w-full m-auto rounded-3xl">
+    <div className="bg-sky-600 relative md:mt-[250px] mt-[100px] md:w-2/3 w-full m-auto rounded-3xl">
         <form onSubmit={addReview} className="flex flex-col md:w-1/2 md:px-2 px-5 w-full m-auto ">
             <label className="font-poppins mt-10 md:p-5 p-3 md:text-[32px] text-[26px] text-white mb-2 bg-slate-800 rounded-xl">New Review:</label>
             <input name="description" value={newReview.description} onChange={(e) => setNewReview({ ...newReview, description: e.target.value })} className={`${styles.userFormFields}`} placeholder="Enter description!"/>
