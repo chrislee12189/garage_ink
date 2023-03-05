@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { critTattoos, formIcons } from '../assets';
 import Register from './Register';
 import { Modal } from '@mui/material';
