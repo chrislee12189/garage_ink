@@ -1,3 +1,13 @@
+# github links:
+https://github.com/chrislee12189/garage_ink
+
+https://github.com/jyenese/FSA_Tattoo
+
+
+# link to site 
+https://garageinkfsa.netlify.app
+
+
 
 # Server Start Command:
 
